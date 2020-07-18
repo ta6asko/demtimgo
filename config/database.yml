@@ -21,11 +21,11 @@ staging:
   database: BC_staging
 
 production:
-  database: dcdo5tmcb4nijb
+  database: d35cihgbtpofa5
   port: 5432
   adapter: postgresql
   encoding: unicode
   pool: 5
-  host: ec2-34-230-149-169.compute-1.amazonaws.com
-  username: udutjkzcsdnqeq
-  password: 7212a1bdf4ab1f8ba91fb57db03f068b600e533626ed4028fab1cb9b354009aa
+  host: ec2-34-239-241-25.compute-1.amazonaws.com
+  username: suaivzikigycnp
+  password: 2e8bf7a05c14d80151594dd425bd534a4f433e5f1b6d2094927308b80463ff9e
