@@ -1,67 +1,34 @@
 default:
   navigation:
-    - title: Women
+    - title: Cologne
       subtitle: Categories
-      url: /t/women
+      url: /t/cologne
       items:
-        - :title: Skirts
-          :url: /t/women/skirts
-        - :title: Dresses
-          :url: /t/women/dresses
-        - :title: Shirts and Blouses
-          :url: /t/women/shirts-and-blouses
-        - :title: Sweaters
-          :url: /t/women/sweaters
-        - :title: Tops and T-shirts
-          :url: /t/women/tops-and-t-shirts
-        - :title: Jackets and Coats
-          :url: /t/women/jackets-and-coats
-      promo_banners:
-        - subtitle: New collection
-          title: Summer 2019
-          url: /t/new-collection/summer-2019
-          image: 'meganav/promo_banner_left-first-category.jpg'
-        - subtitle: Special Offers
-          title: Get up to 30% off
-          url: /t/special-offers/30-off
-          image: 'meganav/promo_banner_right-first-category.jpg'
-    - title: Men
+        - :title: Cologne
+          :url: /t/cologne/new
+    - title: Photo Frames
       subtitle: Categories
-      url: /t/men
+      url: /t/photo_frames
       items:
-        - :title: Shirts
-          :url: /t/men/shirts
-        - :title: T-shirts
-          :url: /t/men/t-shirts
-        - :title: Sweaters
-          :url: /t/men/sweaters
-        - :title: Jackets and Coats
-          :url: /t/men/jackets-and-coats
-      promo_banners:
-        - subtitle: New collection
-          title: Summer 2019
-          url: /t/new-collection/summer-2019
-          image: 'meganav/promo_banner_left-second-category.jpg'
-        - subtitle: Special Offers
-          title: Get up to 30% off
-          url: /t/special-offers/30-off
-          image: 'meganav/promo_banner_right-second-category.jpg'
-    - title: Sportswear
+        - :title: Wooden Frames
+          :url: /t/photo_frames/whooden_frames
+        - :title: Plastic Frames
+          :url: /t/photo_frames/plastic_frames
+        - :title: Collage Photo Frames
+          :url: /t/photo_frames/collage_photo_frames
+        - :title: Metal Photo Frames
+          :url: /t/photo_frames/metal_photo_frames
+        - :title: Glass Photo
+          :url: /t/photo_frames/glass_frames
+    - title: Artificial Plants
       subtitle: Categories
-      url: /t/sportswear
+      url: /t/artificial_plants
       items:
-        - :title: Tops
-          :url: /t/sportswear/tops
-        - :title: Sweatshirts
-          :url: /t/sportswear/sweatshirts
-        - :title: Pants
-          :url: /t/sportswear/pants
-      promo_banners:
-        - subtitle: New collection
-          title: Summer 2019
-          url: /t/new-collection/summer-2019
-          image: 'meganav/promo_banner_left-third-category.jpg'
-        - subtitle: Special Offers
-          title: Get up to 30% off
-          url: /t/special-offers/30-off
-          image: 'meganav/promo_banner_right-third-category.jpg'
+        - :title: Artificial Flowers
+          :url: /t/artificial_plants/artificial_flowers
+        - :title: Artificial Plants
+          :url: /t/artificial_plants/artificial_plants
+        - :title: Artificial Trees
+          :url: /t/artificial_plants/artificial_trees
+        - :title: Succulents
+          :url: /t/artificial_plants/succulents

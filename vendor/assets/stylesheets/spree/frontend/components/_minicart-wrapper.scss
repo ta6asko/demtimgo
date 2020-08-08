@@ -1,0 +1,10 @@
+/**
+ * minicart-wrapper component styling
+ */
+.minicart-wrapper {
+  min-width: 45px;
+
+  @media (max-width: $breakpoint-tablet - 1px) {
+    min-width: unset;
+  }
+}

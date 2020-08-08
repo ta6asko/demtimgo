@@ -1,0 +1,37 @@
+/**
+ * Header sign in/join
+ */
+.authorization-link {
+  text-align: center;
+
+  @media (min-width: $breakpoint-tablet) {
+    min-width: 133px;
+  }
+
+  a {
+    display: inline-block;
+  }
+
+  .auth-icon {
+    font-size: 42px;
+
+    @media (max-width: $breakpoint-tablet - 1px) {
+      display: none;
+    }
+
+    .auth-links {
+      display: block;
+      font-size: $font-size-small;
+      margin-top: -8px;
+
+      @media (max-width: $breakpoint-tablet - 1px) {
+        @include visually-hidden();
+      }
+    }
+
+    .slash {
+      display: inline-block;
+      color: palette(primary);
+    }
+  }
+}

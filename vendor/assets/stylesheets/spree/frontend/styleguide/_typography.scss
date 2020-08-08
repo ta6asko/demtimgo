@@ -1,0 +1,305 @@
+// Typography
+//
+// weight: 1
+//
+// Markup:
+// <span class="text {{modifier_class}}">Header <a href="#">Hover</a></span>
+//
+// .text--title-1 - H1, `@include text(title-1);`
+// .text--title-2 - H2, `@include text(title-2);`
+// .text--title-3 - H3, `@include text(title-3);`
+// .text--title-4 - H4, `@include text(title-4);`
+// .text--title-5 - H5, `@include text(title-5);`
+// .text--regular - p, `@include text(regular);`
+// .text--small - `@include text(small);`
+//
+// Styleguide Base.Typography
+
+$site-font: 'Futura';
+$text-light: 300;
+$text-regular: 400;
+$text-bold: 600;
+$font-size-title-1: 32px;
+$font-size-title-2: 30px;
+$font-size-title-3: 22px;
+$font-size-title-4: 18px;
+$font-size-title-5: 16px;
+$font-size-regular: 14px;
+$font-size-nav-1: 17px;
+$font-size-body: 14px;
+$font-size-small: 12px;
+
+// Base Text
+//
+// Basic text settings, font, colour and weight
+//
+// `@include baseText()`
+//
+// Markup:
+// <span class="base-text">Lorem ipsum dolor sit amet.</span>
+//
+//
+// Styleguide Base.Typography.BaseText
+@mixin baseText() {
+  font-family: $site-font;
+  color: palette(secondary, dark);
+  font-weight: normal;
+}
+
+// Base Title Text
+//
+// Basic title text settings, font, colour and weight
+//
+// `@include baseTitleText()`
+//
+// Markup:
+// <span class="base-title-text">Lorem ipsum dolor sit amet.</span>
+//
+// Styleguide Base.Typography.BaseTitleText
+@mixin baseTitleText() {
+  @include baseText();
+}
+
+@mixin text($text) {
+  @include baseText();
+
+  @if $text == 'body' {
+    font-size: $font-size-body;
+  }
+
+  @if $text == 'small' {
+    font-size: $font-size-small;
+  }
+
+  @if $text == 'regular' {
+    font-size: $font-size-regular;
+    line-height: 1.57em;
+    letter-spacing: 0.01em;
+  }
+
+  @else if $text == 'title-1' {
+    font-size: $font-size-title-1;
+    color: palette(secondary, dark);
+    line-height: 1.09em;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+
+    a {
+      color: inherit;
+    }
+  }
+
+  @else if $text == 'title-2' {
+    font-size: $font-size-title-2;
+    color: palette(contrast);
+    line-height: 1.13em;
+    letter-spacing: 0.02em;
+
+    a {
+      color: inherit;
+    }
+  }
+
+  @else if $text == 'title-3' {
+    font-size: $font-size-title-3;
+    color: palette(secondary);
+    line-height: 1.23em;
+    letter-spacing: 0.05em;
+
+    a {
+      color: inherit;
+    }
+  }
+
+  @else if $text == 'title-4' {
+    font-size: $font-size-title-4;
+    font-weight: $text-light;
+    color: palette(primary);
+    line-height: 1.22em;
+    letter-spacing: 0.05em;
+
+    a {
+      color: inherit;
+    }
+  }
+
+  @else if $text == 'title-5' {
+    font-size: $font-size-title-5;
+    font-weight: $text-light;
+    font-style: italic;
+    color: palette(secondary);
+    line-height: 1.37em;
+    letter-spacing: 0.01em;
+
+    a {
+      color: inherit;
+    }
+
+  }
+}
+
+.base-text {
+  @include baseText();
+}
+
+.base-title-text {
+  @include baseTitleText();
+}
+
+.text--title-1 {
+  @include text(title-1);
+}
+
+.text--title-2 {
+  @include text(title-2);
+}
+
+.text--title-3 {
+  @include text(title-3);
+}
+
+.text--title-4 {
+  @include text(title-4);
+}
+
+.text--title-5 {
+  @include text(title-5);
+}
+
+.text--regular {
+  @include text(regular);
+  line-height: 1.3em;
+}
+
+.text--regular-bold {
+  @include text(regular-bold);
+}
+
+.text--small {
+  @include text(small);
+}
+
+h1 {
+  @include text(title-1);
+  margin: 0;
+  padding: 8px 0 14px;
+}
+
+h2 {
+  @include text(title-2);
+  margin: 0;
+  padding: 12px 0 12px;
+}
+
+h3 {
+  @include text(title-3);
+  margin: 0;
+  padding: 14px 0 8px;
+}
+
+h4 {
+  @include text(title-4);
+  margin: 0;
+  padding: 11px 0 11px;
+}
+
+h5 {
+  @include text(title-5);
+  margin: 0;
+  padding: 2px 0 6px;
+}
+
+p {
+  @include text(regular);
+  margin: 0;
+  padding: 0 0 12px;
+}
+
+small {
+  @include text(small);
+}
+
+b,
+strong {
+  font-weight: $text-regular !important;
+}
+
+// Text- Level Semantics
+//
+// `@include semantics();`
+// Use this mixin to include all text-level semantics. Best for text text-heavy pages such as CMS.
+//
+// weight: 1
+//
+// Markup:
+//<p>
+//  The <a href="#">a element</a> example<br>
+//  The <abbr title="Title text">abbr element</abbr> example<br>
+//  The <b>b element</b> example<br>
+//  The <cite>cite element</cite> example<br>
+//  The <code>code element</code> example<br>
+//  The <del>del element</del> example<br>
+//  The <dfn>dfn element</dfn> example<br>
+//  The <em>em element</em> example<br>
+//  The <i>i element</i> example<br>
+//  The img element <img src="http://placekitten.com/16/16" alt="" class="inline"> example<br>
+//  The <ins>ins element</ins> example<br>
+//  The <kbd>kbd element</kbd> example<br>
+//  The <mark>mark element</mark> example<br>
+//  The <q>q element <q>inside</q> a q element</q> example<br>
+//  The <s>s element</s> example<br>
+//  The <samp>samp element</samp> example<br>
+//  The <small>small element</small> example<br>
+//  The <span>span element</span> example<br>
+//  The <strike>strike element</strike> example<br>
+//  The <strong>strong element</strong> example<br>
+//  The <sub>sub element</sub> example<br>
+//  The <sup>sup element</sup> example<br>
+//  The <var>var element</var> example<br>
+//  The <u>u element</u> example
+//</p>
+//
+//
+// Styleguide Base.Typography.Semantics
+
+
+@mixin semantics() {
+  @include text(regular);
+
+  a {
+    color: palette(primary);
+    text-decoration: none;
+
+    &:hover {
+      color: palette(primary, light);
+      text-decoration: underline;
+    }
+  }
+}
+
+body {
+  @include semantics();
+}
+
+// Text - Headers & Paragraphs
+//
+// weight: 1
+//
+// Markup:
+// <h1>Header 1</h1>
+// <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed pharetra lectus felis, nec dignissim sapien volutpat ac. Maecenas faucibus vulputate dictum. Duis aliquet scelerisque est eu aliquam. </p>
+// <p>Nunc posuere ligula sed nulla consectetur, nec scelerisque urna porttitor. Nulla commodo tincidunt ex, a rutrum massa ultrices tempor. Sed eleifend interdum ligula vitae finibus. Vivamus consequat turpis nibh, quis blandit elit commodo eu. </p>
+// <h2>Header 2</h2>
+// <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed pharetra lectus felis, nec dignissim sapien volutpat ac. Maecenas faucibus vulputate dictum. Duis aliquet scelerisque est eu aliquam. </p>
+// <p>Nunc posuere ligula sed nulla consectetur, nec scelerisque urna porttitor. Nulla commodo tincidunt ex, a rutrum massa ultrices tempor. Sed eleifend interdum ligula vitae finibus. Vivamus consequat turpis nibh, quis blandit elit commodo eu. </p>
+// <h3>Header 3</h3>
+// <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed pharetra lectus felis, nec dignissim sapien volutpat ac. Maecenas faucibus vulputate dictum. Duis aliquet scelerisque est eu aliquam. </p>
+// <p>Nunc posuere ligula sed nulla consectetur, nec scelerisque urna porttitor. Nulla commodo tincidunt ex, a rutrum massa ultrices tempor. Sed eleifend interdum ligula vitae finibus. Vivamus consequat turpis nibh, quis blandit elit commodo eu. </p>
+// <h4>Header 4</h4>
+// <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed pharetra lectus felis, nec dignissim sapien volutpat ac. Maecenas faucibus vulputate dictum. Duis aliquet scelerisque est eu aliquam. </p>
+// <p>Nunc posuere ligula sed nulla consectetur, nec scelerisque urna porttitor. Nulla commodo tincidunt ex, a rutrum massa ultrices tempor. Sed eleifend interdum ligula vitae finibus. Vivamus consequat turpis nibh, quis blandit elit commodo eu. </p>
+// <h5>Header 5</h5>
+// <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed pharetra lectus felis, nec dignissim sapien volutpat ac. Maecenas faucibus vulputate dictum. Duis aliquet scelerisque est eu aliquam. </p>
+// <p>Nunc posuere ligula sed nulla consectetur, nec scelerisque urna porttitor. Nulla commodo tincidunt ex, a rutrum massa ultrices tempor. Sed eleifend interdum ligula vitae finibus. Vivamus consequat turpis nibh, quis blandit elit commodo eu. </p>
+//
+// Styleguide Base.Typography.Headers & Paragraphs

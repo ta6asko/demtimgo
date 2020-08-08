@@ -1,0 +1,488 @@
+// Label
+//
+// weight: 1
+//
+// `@include label();`
+//
+// Markup:
+// <label>First Name</label>
+//
+//
+//
+// Styleguide Form.Label
+
+@mixin label {
+  display: block;
+  color: palette(secondary);
+  margin-bottom: 9px;
+}
+
+label {
+  @include label();
+}
+
+// Input
+//
+// weight: 2
+//
+// `@include input();`
+//
+// Markup:
+// <label>First Name</label>
+// <input type="text" value="Text Input" />
+//
+//
+// Styleguide Form.Input
+
+@mixin input {
+  color: palette(secondary);
+  border: 1px solid palette(secondary);
+  padding: 10px;
+  height: 42px;
+  max-width: 100%;
+  width: 100%;
+
+  &:focus {
+    outline: none;
+    box-shadow: 0 0 5px #C1C1C1;
+  }
+}
+
+input[type="text"],
+input[type="email"],
+input[type="search"],
+input[type="tel"],
+input[type="url"],
+input[type="password"],
+input[type="date"],
+input[type="month"],
+input[type="week"],
+input[type="datetime-local"],
+input[type="datetime"],
+input[type="number"] {
+  @include input();
+}
+
+// Button
+//
+// `@include button();`
+// `@include button(alt);`
+//
+// weight: 1
+//
+// Markup:
+// <input type="button" value="button" class="button__alt-sm"/>
+// <input type="reset" value="reset" class="button__alt-sm"/>
+//
+// Styleguide Form.Input.Button
+
+input[type="button"],
+input[type="submit"],
+.primary > .action,
+button {
+  @include button();
+}
+
+.secondary > .action,
+.button--secondary {
+  @include button(secondary);
+}
+
+input.button--tertiary,
+input.button--tertiary,
+button.button--tertiary,
+button.button--tertiary {
+  @include button(tertiary);
+}
+
+input[type="reset"],
+button[type="reset"] {
+  @include button(secondary);
+}
+
+input[type="file"] {
+  @include button(tertiary);
+  padding: 10px;
+
+  &:focus {
+    outline: none;
+  }
+}
+
+// Checkbox
+//
+// weight: 2
+//
+// `@include checkbox();`
+//
+//
+// Markup:
+// <form class="form">
+//  <fieldset>
+//   <legend> Checkboxes </legend>
+//   <input type="checkbox" id="checkbox" />
+//   <label for="checkbox">Checkbox label</label>
+//   <input type="checkbox" id="checkbox-checked" checked/>
+//   <label for="checkbox-checked">Checked</label>
+//   <input type="checkbox" id="checkbox-disabled" disabled/>
+//   <label for="checkbox-disabled">Disabled</label>
+//  </fieldset>
+// </form>
+//
+// Styleguide Form.Input.Checkbox
+
+@mixin checkbox {
+  position: absolute;
+  opacity: 0;
+  z-index: 2;
+  cursor: pointer;
+  width: 18px;
+  height: 18px;
+  margin: -2px 0;
+
+  // label text
+  & + label,
+  & + span {
+    position: relative;
+    cursor: pointer;
+    padding: 0 0 0 26px;
+    margin: 0 0 16px;
+    line-height: 15px;
+  }
+
+  // Box.
+  & + label::before,
+  & + span::before {
+    content: '';
+    display: block;
+    border: 1px solid palette(secondary);
+    box-shadow: 0 0 0 1px palette(contrast, light) inset;
+    width: 15px;
+    height: 15px;
+    position: absolute;
+    top: 0;
+    left: 0;
+  }
+
+  &.star + label::before,
+  &.star + span::before {
+    content: '*';
+    color: palette(primary);
+    font-family: $site-font;
+    display: inline-block;
+    width: 15px;
+    height: 15px;
+    border: 0;
+    vertical-align: top;
+    margin: 0 10px 0 0;
+  }
+
+  // Disabled state label.
+  &:disabled + label,
+  &:disabled + span {
+    color: palette(secondary);
+    cursor: auto;
+  }
+
+  // Disabled box.
+  &:disabled + label::before,
+  &:disabled + span::before {
+    background: palette(secondary, light);
+  }
+
+  // Checkmark. Could be replaced with an image
+  // Need to exclude .star, as the .star implementation doesn't overwrite all of the following properties
+  &:not(.star):checked + label::before,
+  &:not(.star):checked + span::before {
+    content: '';
+    width: 15px;
+    height: 15px;
+    background-color: palette(primary);
+  }
+
+  &:not(.star):checked + label,
+  &:not(.star):checked + span {
+    color: palette(primary);
+  }
+
+  // Style the rest of the labels as if the star is not selected
+  &.star:checked + label ~ label::before,
+  &.star:checked + span ~ span::before {
+    content: '*';
+    color: palette(secondary);
+  }
+}
+
+input[type='checkbox'] {
+  @include checkbox();
+}
+
+// Radio Button
+//
+// weight: 3
+//
+// `@include radio();`
+//
+//
+// Markup:
+// <form class="form">
+//  <fieldset>
+//   <legend> Radio Buttons </legend>
+//   <input name="radio" type="radio" id="radio" />
+//   <label for="radio">radio label</label>
+//   <input name="radio" type="radio" id="radio-checked" checked/>
+//   <label for="radio-checked">Checked</label>
+//   <input name="radio" type="radio" id="radio-disabled" disabled/>
+//   <label for="radio-disabled">Disabled</label>
+//  </fieldset>
+// </form>
+//
+// Styleguide Form.Input.Radio
+
+@mixin radio {
+  @include checkbox();
+
+  & + label::before,
+  & + span::before {
+    content: '';
+    border-radius: 10px;
+    box-shadow: 0 0 0 2px palette(contrast, light) inset;
+  }
+
+  &:not(.star):checked + label::before, // not(.star) required to override :checked style inherited from @include checkbox();
+  &:not(.star):checked + span::before {
+    content: '';
+    background-color: palette(primary);
+  }
+
+}
+
+input[type='radio'] {
+  @include radio();
+}
+
+// Textarea
+//
+// weight: 4
+//
+// `@include textarea();`
+//
+// Markup:
+// <label>Text Area</label>
+// <textarea> This is a textarea </textarea>
+//
+//
+// Styleguide Form.Input.Textarea
+
+@mixin textarea {
+  @include text(body);
+  color: palette(secondary);
+  border: 1px solid palette(secondary, light);
+  line-height: 1em;
+  padding: 10px;
+  max-width: 100%;
+  width: 100%;
+
+  &:focus {
+    outline: none;
+    box-shadow: 0 0 5px #C1C1C1;
+  }
+}
+
+textarea {
+  @include textarea();
+}
+
+// Select Box
+//
+// weight: 3
+//
+// `@include select();`
+//
+//
+// Markup:
+// <label>Your Options</label>
+// <div class="select-box">
+//  <select>
+//    <option>Here is the first option</option>
+//    <option>The second option</option>
+//    <option>The third option</option>
+//    <option>Here is a really really long option</option>
+//  </select>
+// </div>
+//
+// Styleguide Form.Select
+@mixin select {
+  background: palette(contrast, light);
+  border: 1px solid palette(secondary, light);
+  line-height: 1em;
+  max-width: 100%;
+  display: inline-block;
+  width: 100%;
+  overflow: hidden;
+  position: relative;
+
+  &::after {
+    width: 0;
+    height: 0;
+    border-width: 4px 4px 0;
+    border-style: solid;
+    border-color: palette(secondary) transparent transparent;
+    position: absolute;
+    top: 19px;
+    right: 12px;
+    content: '';
+  }
+
+  select {
+    @include text(body);
+    color: palette(secondary);
+    padding: 6px 35px 6px 10px;
+    width: 100%;
+    height: 42px;
+    border: none;
+    box-shadow: none;
+    background-color: transparent;
+    background-image: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    position: relative;
+    z-index: 2;
+
+    &::-ms-expand {
+      display: none;
+    }
+
+    &:focus {
+      outline: none;
+    }
+  }
+}
+
+.select-box {
+  @include select();
+}
+
+input[type=range] {
+  height: 25px;
+  -webkit-appearance: none;
+  margin: 10px 0;
+  width: 100%;
+}
+input[type=range]:focus {
+  outline: none;
+}
+input[type=range]::-webkit-slider-runnable-track {
+  width: 100%;
+  border-radius: 1px;
+  height: 5px;
+  cursor: pointer;
+  background: palette(contrast);
+}
+input[type=range]::-webkit-slider-thumb {
+  box-shadow: 0 0 0 palette(contrast);
+  border: 2px solid palette(contrast);
+  height: 18px;
+  width: 18px;
+  border-radius: 25px;
+  background: palette(secondary);
+  cursor: pointer;
+  -webkit-appearance: none;
+  margin-top: -7px;
+}
+input[type=range]:active::-webkit-slider-thumb {
+  background: palette(contrast);
+}
+
+input[type=range]::-moz-range-track {
+  width: 100%;
+  border-radius: 1px;
+  height: 5px;
+  cursor: pointer;
+  background: palette(contrast);
+}
+
+input[type=range]::-moz-range-thumb {
+  box-shadow: 0 0 0 palette(contrast);
+  border: 2px solid palette(contrast);
+  height: 18px;
+  width: 18px;
+  border-radius: 25px;
+  background: palette(secondary);
+  cursor: pointer;
+  -webkit-appearance: none;
+  margin-top: -7px;
+}
+
+// Required
+//
+// weight: 4
+//
+// `@include required();`
+//
+// Markup:
+// <div class="field required">
+//    <label>Your label</label>
+//    <input type="text">
+// </div>
+// <div class="field _required">
+//    <label>Your label</label>
+//    <input type="text">
+// </div>
+//
+// Styleguide Form.required
+
+@mixin required {
+  content: '*';
+  color: palette(secondary);
+  font-size: 16px;
+  margin-left: 5px;
+}
+
+.field.required {
+  label::after,
+  .label::after {
+    @include required();
+  }
+}
+
+.field._required {
+  label::after,
+  .label::after {
+    @include required();
+  }
+}
+
+// Errors
+//
+// weight: 5
+//
+// `@include field-error();`
+//
+// Markup:
+// <div class="field _error">
+//    <label>Your label</label>
+//    <input type="text">
+//    <div class="field-error">
+//        <span>This field is incorrect</span>
+//    </div>
+// </div>
+//
+//
+// Styleguide Form.errors
+
+@mixin field-error {
+  color: palette(accent, bright);
+  font-size: $font-size-small;
+  margin-top: 8px;
+}
+
+.field._error input,
+.field._error .select-box,
+input.mage-error {
+  border-color: palette(accent, bright);
+}
+.field-error,
+div.mage-error {
+  @include field-error();
+}

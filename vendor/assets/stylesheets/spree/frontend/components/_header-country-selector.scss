@@ -1,0 +1,93 @@
+/**
+ * Styling for country selector
+ */
+ $country-codes: 'tr', 'uk';
+
+.country-selector__wrap {
+  $arrow-color: palette(contrast);
+  margin-left: 8px;
+  display: none;
+
+  .show-country-selector {
+    display: flex;
+    align-items: center;
+
+    &:focus {
+      outline: none;
+    }
+
+    &:hover {
+      text-decoration: none;
+    }
+  }
+
+  .country {
+    display: flex;
+    cursor: pointer;
+
+    &::before {
+      @include pseudo-icon(22px, 22px);
+      position: relative;
+      background-size: cover;
+      background-position: left center;
+    }
+
+    .country-name {
+      padding: 0px 10px;
+      box-sizing: unset;
+    }
+  }
+
+  @each $country-code in $country-codes {
+    .country--#{$country-code}::before {
+      @include icon-flag($country-code);
+    }
+  }
+
+  @include large-only() {
+    position: relative;
+    display: block;
+  }
+
+  &.active {
+    .country-selector {
+      @include fade-in();
+      display: block;  // show when hovered on authorization-link
+    }
+
+    .show-country-selector {
+      &::after {
+        @include icon(arrow-up);
+      }
+    }
+  }
+
+  .show-country-selector {
+    &::after {
+      @include icon(arrow-down);
+      transition: $transition;
+    }
+  }
+}
+
+.country-selector {
+  $background: palette(contrast, light);
+
+  display: none; // hide at start
+  position: absolute;
+  left: 0;
+  top: 29px;
+  right: 0;
+  box-shadow: 0px 4px 6px 1px rgba(165, 181, 168, 0.33);
+  background-color: $background;
+  z-index: 1;
+
+  @media (max-width: $breakpoint-country-selector - 1px) {
+    left: -35px;
+  }
+
+  @include large-only() {
+    width: 160px;
+    right: auto;
+  }
+}

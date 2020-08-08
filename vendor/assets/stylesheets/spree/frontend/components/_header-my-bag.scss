@@ -1,0 +1,79 @@
+/**
+ * Header my bag
+ */
+.minicart-wrapper {
+  text-align: center;
+
+  .showcart {
+    display: block;
+
+    @media (max-width: $breakpoint-tablet - 1px) {
+      margin-left: 0;
+    }
+
+    &::before {
+      @include icon(bag);
+      font-size: 42px;
+    }
+
+    &:hover::before {
+      @include icon-hover();
+    }
+
+    &:hover {
+      text-decoration: none;
+    }
+
+    .text {
+      display: block;
+      font-size: $font-size-small;
+      position: relative;
+      top: -10px;
+
+      @media (max-width: $breakpoint-tablet - 1px) {
+        @include visually-hidden();
+      }
+
+      &:hover {
+        color: palette(primary, light);
+        text-decoration: underline;
+      }
+    }
+
+    .counter.qty {
+      font-family: $site-font;
+      line-height: 14px;
+      border: 1px solid palette(primary);
+      background-color: palette(contrast, light);
+      width: 16px;
+      height: 16px;
+      display: block;
+      text-align: center;
+      border-radius: 10px;
+      position: relative;
+      color: palette(contrast);
+      font-weight: 600;
+      font-size: $font-size-small;
+      left: 22px;
+      top: -44px;
+
+      @media (max-width: $breakpoint-tablet - 1px) {
+        top: -23px;
+      }
+
+      &.empty {
+        display: none;
+      }
+    }
+
+    .counter-number {
+      font-size: 10px;
+      text-align: center;
+      color: palette(primary);
+    }
+
+    .counter-label {
+      display: none;
+    }
+  }
+}

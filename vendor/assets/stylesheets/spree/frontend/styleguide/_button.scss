@@ -1,0 +1,103 @@
+// Button
+//
+// weight: 2
+//
+// Markup:
+// <button class="button {{modifier_class}}" type="button" value="Button" />Button</button>
+//
+// .button--primary - button-primary, `@include button(primary);`
+// .button--secondary - button-secondary, `@include button(secondary);`
+// .button--tertiary - button-tertiary, `@include button(tertiary);`
+// .button--large - button-large, `@include button()`;
+// .button--regular - button-regular, `@include button()`;
+//
+// Styleguide Base.Button
+
+@mixin button($button: 'default', $small-mobile: false) {
+  display: inline-block;
+  border: 0;
+  font-family: $site-font;
+  text-transform: uppercase;
+  color: palette(contrast, light);
+  background-color: palette(primary);
+  font-weight: $text-light;
+  cursor: pointer;
+  text-align: center;
+  text-decoration: none;
+  font-size: 17px;
+  width: 170px;
+  padding: 14px;
+  line-height: 1.23em;
+  letter-spacing: 0.05em;
+
+  &:hover {
+    background-color: palette(primary, light);
+    color: palette(contrast, light);
+    text-decoration: none;
+  }
+
+  &:focus {
+    outline: none;
+  }
+
+  &:active {
+    background-color: palette(secondary);
+  }
+
+  // Secondary buttons
+  @if $button == 'secondary' {
+    background-color: palette(contrast, light);
+    color: palette(primary);
+    box-shadow: inset 0 0 0 1px palette(primary);
+
+    &:hover,
+    &:active {
+      background-color: palette(primary);
+      color: palette(contrast, light);
+    }
+  }
+
+  // Tertiary buttons
+  @if $button == 'tertiary' {
+    background-color: palette(secondary);
+    color: palette(contrast, light);
+
+    &:hover,
+    &:active {
+      background-color: palette(secondary, light);
+    }
+  }
+}
+
+.button,
+.action.primary {
+  @include button();
+
+  &--primary.button {
+    @include button(primary);
+  }
+
+  &--secondary.button {
+    @include button(secondary);
+  }
+
+  &--tertiary.button {
+    @include button(tertiary);
+  }
+
+  &--large.button {
+    font-size: 23px;
+    width: 260px;
+    line-height: 1.17em;
+    letter-spacing: 0.1em;
+    padding: 19px;
+  }
+
+  &--regular.button {
+    font-size: 17px;
+    width: 170px;
+    padding: 14px;
+    line-height: 1.23em;
+    letter-spacing: 0.05em;
+  }
+}

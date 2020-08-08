@@ -1,0 +1,47 @@
+/**
+ * Header about us, contact details, store locator, and country toggle styles
+ */
+.header.links {
+  @include resetUL();
+  display: flex;
+  justify-content: flex-end;
+  flex: 0 0 auto;
+  align-items: center;
+
+  > li {
+    display: inline-flex;
+    padding-left: 16px;
+  }
+
+  a {
+    font-size: $font-size-small;
+  }
+
+  .header-links__info {
+    @include text(small);
+    align-content: center;
+    flex: 0 0 auto;
+
+    .phone-icon--container {
+      display: flex;
+      font-size: 22px;
+    }
+
+    .locator-icon--container {
+      display: flex;
+      font-size: 21px;
+    }
+
+    .phone-number--text {
+      padding-top: 1px;
+    }
+  }
+    
+  .track-order-link {
+    .icon {
+      &::before {
+        margin-right: 5px;
+      }
+    }
+  }
+}

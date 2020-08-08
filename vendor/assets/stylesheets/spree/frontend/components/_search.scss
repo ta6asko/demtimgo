@@ -1,0 +1,180 @@
+/**
+ * Header search box
+ */
+
+ $search-hight-mobile: 48px;
+
+.block-search {
+  @media (min-width: $breakpoint-large) {
+    padding-left: 35px;
+    width: 100%;
+  }
+
+  @media (max-width: $breakpoint-tablet - 1px) {
+    position: absolute;
+    top: 64px;
+    left: 0;
+    padding: 5px 20px 20px 20px;
+    width: 100%;
+    background-color: $color-white;
+    transition: .60s ease-in-out;
+  }
+
+  @media (max-width: $breakpoint-tablet - 1px) {
+    border-bottom: 1px solid palette(secondary, mobile-menu-item-background);
+  }
+
+  .block-title {
+    @include visually-hidden();
+  }
+
+  .control {
+    padding-top: 2px;
+    position: relative;
+    z-index: 102;
+
+    @media (min-width: $breakpoint-large) {
+      display: flex;
+      justify-content: flex-end;
+    }
+
+    @media (max-width: $breakpoint-large - 1px) {
+      padding-top: 0;
+      padding-bottom: 0;
+    }
+  }
+
+  .input-text {
+    font-family: inherit;
+    font-size: $font-size-title-5;
+    border-color: palette(secondary, light);
+    width: 100%;
+    height: 51px;
+    padding-left: 48px;
+    color: palette(primary);
+    box-shadow: none;
+    line-height: 18px;
+
+    @include placeholder {
+      font-family: inherit;
+      color: palette(primary);
+
+      @media (max-width: $breakpoint-tablet - 1px) {
+        color: palette(secondary, input);
+      }
+    }
+
+    @media (min-width: $breakpoint-large) {
+      transition: $transition;
+    }
+
+    @media (max-width: $breakpoint-large - 1px) {
+      /*hide input box by setting opacity to 0 as visually hidden mixin will cause the display issue in IE*/
+      height: 1px;
+      width: 1px;
+      padding: 0;
+      border: 0;
+      opacity: 0;
+    }
+
+    @media (max-width: $breakpoint-tablet - 1px) {
+      width: 100%;
+      display: block;
+      border-color: palette(secondary, input);
+      padding: 15px;
+      opacity: 1;
+      height: auto;
+      border : 1px solid palette(secondary, input);
+      top: 0;
+      height: $search-hight-mobile;
+    }
+
+    &:focus {
+      box-shadow: none;
+
+      @media (min-width: $breakpoint-large) {
+        width: 100%;
+      }
+    }
+
+    &.aligent-search-autocomplete-input--active {
+      @media (min-width: $breakpoint-large) {
+        width: 100%;
+      }
+    }
+  }
+
+  .action.search {
+    background: none;
+    width: auto;
+    margin: 4px -43px 9px 9px; // use negative margin to display icon on above input
+    padding: 0;
+    font-size: $font-size-title-1;
+    z-index: 1;
+
+    &:first-child {
+      left: 0;
+
+      @media (max-width: $breakpoint-large - 1px) {
+        display: none;
+      }
+
+      @media (max-width: $breakpoint-tablet - 1px) {
+        right: 55px;
+        position: absolute;
+        left: unset;
+        display: block;
+        margin-top:4px;
+        height: inherit; // added this line to overcome the search icon height issue on check gift card balance page.
+      }
+    }
+
+    &::before {
+      @include icon(magnifying-glass);
+      color: palette(primary, base);
+      font-size: 24px;
+    }
+  }
+
+  .label {
+    @media (min-width: $breakpoint-large) {
+      @include visually-hidden();
+    }
+
+    @media (max-width: $breakpoint-large - 1px) {
+      padding-top: 4px;
+      margin-bottom: 0;
+      cursor: pointer;
+    }
+
+    @media (max-width: $breakpoint-tablet - 1px) {
+      position: absolute;
+      right: 40px;
+      left: unset;
+    }
+
+    span {
+      display: block;
+      @media (max-width: $breakpoint-tablet - 1px) {
+        @include visually-hidden();
+      }
+      color: palette(primary);
+      font-size: $font-size-small;
+      margin-top: -5px;
+
+      &:hover {
+        color: palette(primary, light);
+        text-decoration: underline;
+      }
+    }
+
+    &::before {
+      @include icon(magnifying-glass);
+      font-size: $font-size-title-1;
+
+      @media (max-width: $breakpoint-tablet - 1px) {
+        font-size: 34px;
+      }
+    }
+  }
+}

@@ -1,0 +1,23 @@
+/**
+ * Basic styling for form fields
+ */
+.field {
+  .control {
+    padding-bottom: 10px;
+  }
+
+  // Some address forms have a child element with class .control inside an element with .control, so to avoid double padding
+  // at the end, the last child in the container (that has class .nested) needs to have its padding removed
+  // This also means that the first child has to have padding top added
+  .nested & {
+    &:first-child {
+      padding-top: 10px;
+    }
+
+    &:last-child {
+      .control {
+        padding-bottom: 0;
+      }
+    }
+  }
+}

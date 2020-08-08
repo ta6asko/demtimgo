@@ -1,0 +1,15 @@
+/.bundle
+/vendor/bundle/
+/vendor/ruby/
+
+/log/*
+/tmp/*
+
+/config/storage.yml
+/config/database.yml
+/config/application.yml
+/.yardoc
+.byebug_history
+node_modules/
+/public/assets/
+/public/packs/

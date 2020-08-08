@@ -1,0 +1,66 @@
+/**
+ * PLP product image styling
+ */
+ 
+.o-imagewrap {
+  display: block;
+  position: relative;
+  margin: 0;
+  overflow: hidden;
+  white-space: pre;
+  width: 100%;
+  height: 95%;    
+  padding-bottom: 100%;
+
+  .img-responsive {
+    max-width: 100%;
+  }
+
+  .o-image {
+    display: block;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+  }
+
+  .o-image__img {
+    display: block;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    min-width: 100%;
+    height: 100%;
+    transform: translate(-50%, -50%);
+    transition: opacity 0.3s 0.2s;
+    text-align: center;
+  }
+  
+  .img-clip {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  .img-hidden {
+    .o-image__img {
+      opacity: 0;
+      transition: opacity 0.3s 0.2s;
+    }
+  }
+
+  .o-image__img-landscape {
+    padding-bottom: calc(3/4 * 100%);
+  }
+
+  .o-image__img-portrait {
+    padding-bottom: calc(3/4 * 100%);
+  }
+}
+
+.square-wrapper {
+  width: 100%;
+  height: 95%;    
+  padding-bottom: 100%;
+}

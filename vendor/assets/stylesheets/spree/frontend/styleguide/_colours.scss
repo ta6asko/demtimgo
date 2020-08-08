@@ -1,0 +1,144 @@
+// Colours
+//
+// weight: 0
+//
+// Styleguide Base.Colours
+
+// Primary Palette
+//
+// weight: 1
+//
+// palette(primary) - #28463A, BBNT Green
+// palette(primary, light) - #48645A, Sage
+// palette(primary, accent) - #465E68, BBNT Rewards Green
+// palette(primary, message) - #346558, Success Message Green
+// palette(primary, background) - #F4F8F4, Background Green
+// palette(primary, mobile-menu-item-active-background) - #034436, Mobile Menu Item Active Background Green
+// palette(primary, success) - #3B715C, Success Green
+//
+// Styleguide Base.Colours.Primary
+
+// Secondary Palette
+//
+// weight: 2
+//
+// palette(secondary) - #64656A, Slate Grey
+// palette(secondary, light) - #898A8D, Cool Grey
+// palette(secondary, background) - #F8F8F8, Background Grey
+// palette(secondary, light-background) - #FBFBFB, Light Background Grey
+// palette(secondary, tab) - #E5E6E8, Tab Grey
+// palette(secondary, border) - #BBBCBF, Border Grey
+// palette(secondary, dark) - #434244, Almost Black
+// palette(secondary, mobile-menu-item-background) - #D2D2D2, Mobile Menu Item Background Grey
+// palette(secondary, plp-filter-background) - #F2F2F2, PLP Filter Background Grey
+// palette(secondary, tooltip) - #64656C, Tooltip content colour
+// palette(secondary, input) - #A3A3A3, Input border or placeholder colour
+//
+// Styleguide Base.Colours.Secondary
+
+// Accents Palette
+//
+// weight: 3
+//
+// palette(accent) - #AB9B82, Gold
+// palette(accent, bright) - #9F133D, Magenta
+//
+// Styleguide Base.Colours.Accents
+
+// Contrast Palette
+//
+// weight: 4
+//
+// palette(contrast) - #000000, Black
+// palette(contrast, light) - #FFFFFF, White
+//
+// Styleguide Base.Colours.Contrast
+
+/* Documentation End */
+
+// Primary Palette
+$color-brand-green: #28463A;
+$color-sage: #48645A;
+$color-rewards-green: #465E68;
+$color-message-success-green: #346558;
+$color-background-green: #F4F8F4;
+$color-bg-mobile-menu-item-active: #034436;
+$color-success-green: #3B715C;
+$color-brand-muted: #636569;
+
+// Secondary Palette
+$color-slate-grey: #64656A;
+$color-cool-grey: #898A8D;
+$color-tab-grey: #E5E6E8;
+$color-border-grey: #BBBCBF;
+$color-border-light: #D3D3D3;
+$color-almost-black: #434244;
+$color-bg-grey: #F8F8F8;
+$color-bg-light-grey: #FBFBFB;
+$color-bg-dark: #F7F7F7;
+$color-bg-mobile-menu-item: #D2D2D2;
+$color-bg-plp-filter-grey: #F2F2F2;
+$color-tooltip-content-grey: #64656C;
+$color-input-grey: #A3A3A3;
+$color-bg-light-border: #d3d3d3;
+
+
+// New design 2020 Platte
+$color-bg-grey2: #F0F0F0;
+$color-border-grey2: #C1C1C1;
+$white-shade: #f4f7f4;
+$color-grey3: #b1b1b1;
+
+// Accents Palette
+$color-gold: #AB9B82;
+$color-magenta: #9F133D;
+$color-error-background-red: #FAF2F2;
+
+// Contrast Palette
+$color-white: #FFFFFF;
+$color-black: #000000;
+
+// define palettes:
+$palettes: (
+  primary: (
+    base: $color-brand-green,
+    light: $color-sage,
+    lighter: $color-brand-muted,
+    accent: $color-rewards-green,
+    message: $color-message-success-green,
+    background: $color-background-green,
+    mobile-menu-item-active-background: $color-bg-mobile-menu-item-active,
+    success: $color-success-green,
+    background-grey: $color-bg-grey
+  ),
+  secondary: (
+    base:  $color-slate-grey,
+    light: $color-cool-grey,
+    background: $color-bg-grey,
+    light-background: $color-bg-light-grey,
+    dark-background: $color-bg-dark,
+    tab: $color-tab-grey,
+    border: $color-border-grey,
+    border-light: $color-border-light,
+    dark: $color-almost-black,
+    mobile-menu-item-background: $color-bg-mobile-menu-item,
+    plp-filter-background: $color-bg-plp-filter-grey,
+    tooltip: $color-tooltip-content-grey,
+    input: $color-input-grey,
+    light-border: $color-bg-light-border
+  ),
+  accent: (
+    base: $color-gold,
+    bright: $color-magenta,
+    error: $color-error-background-red
+  ),
+  contrast: (
+    base: black,
+    light: white
+  )
+);
+
+// Palette function,
+@function palette($palette, $tone: 'base') {
+  @return map-get(map-get($palettes, $palette), $tone);
+}

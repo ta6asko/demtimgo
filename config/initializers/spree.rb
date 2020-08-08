@@ -1,6 +1,9 @@
+# frozen_string_literal: true
+
 # Configure Spree Preferences
 #
-# Note: Initializing preferences available within the Admin will overwrite any changes that were made through the user interface when you restart.
+# Note: Initializing preferences available within the Admin will overwrite any changes that were made through
+#         the user interface when you restart.
 #       If you would like users to be able to update a setting with the Admin it should NOT be set here.
 #
 # Note: If a preference is set here it will be stored within the cache & database upon initialization.
@@ -9,6 +12,7 @@
 #
 # In order to initialize a setting do:
 # config.setting_name = 'new value'
+
 Spree.config do |config|
   # Example:
   # Uncomment to stop tracking inventory levels in the application
@@ -26,5 +30,4 @@ Spree.dependencies do |dependencies|
   # dependencies.cart_add_item_service = 'MyNewAwesomeService'
 end
 
-
-Spree.user_class = "Spree::User"
+Spree.user_class = 'Spree::User'

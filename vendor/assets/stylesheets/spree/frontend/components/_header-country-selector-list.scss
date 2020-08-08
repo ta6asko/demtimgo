@@ -1,0 +1,29 @@
+/**
+ * Styling for country selector list
+ */
+.country-selector {
+  .country-selector__list {
+    @include resetUL();
+    max-height: 200px;
+    overflow: auto;
+
+    .country {
+      display: flex;
+      padding: 12px 15px;
+
+      &:hover {
+        background: $white-shade;
+        color: $color-almost-black;
+      }
+    }
+  }
+
+  .country-selector__list__li-text {
+    position: relative;
+    left: 15px;
+  }
+
+  .country-selector__list--mobile {
+    display: none;
+  }
+}

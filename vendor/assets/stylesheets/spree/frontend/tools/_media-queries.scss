@@ -1,0 +1,62 @@
+/**
+ * Media query mixins
+ *
+ * These aren't intended to be the only media queries that are used, they're intended to make it simpler
+ * to implement basic mobile/desktop layout customizations
+ */
+
+/**
+ * Rules to only be included when user is on a large device
+ *
+ * Allows for specifying a context, as some areas of the site need to break to mobile sooner than others
+ *
+ * @param $context [Optional] Provide a context for where the mixin is being used
+ *
+ */
+@mixin large-only($context: 'default') {
+  @if ($context == 'header') {
+    @media (min-width: $header-breakpoint + 1px) {
+      @content;
+    }
+  } @else if ($context == 'tablet-portrait') {
+    @media (min-width: $breakpoint-mobile) {
+      @content;
+    }
+  } @else if ($context == 'desktop-l') {
+    @media (min-width: $breakpoint-l + 1px) {
+      @content;
+    }
+  } @else if ($context == 'desktop-xl') {
+    @media (min-width: $breakpoint-xl + 1px) {
+      @content;
+    }
+  } @else {
+    @media (min-width: $breakpoint-mobile + 1px) {
+      @content;
+    }
+  }
+}
+
+/**
+ * Rules to only be included when user is on a small device
+ *
+ * Allows for specifying a context, as some areas of the site need to break to mobile sooner than others
+ *
+ * @param $context [Optional] Provide a context for where the mixin is being used
+ *
+ */
+@mixin small-only($context: 'default') {
+  @if ($context == 'header') {
+    @media (max-width: $header-breakpoint) {
+      @content;
+    }
+  } @else if ($context == 'tablet-portrait') {
+    @media (max-width: $breakpoint-l) {
+      @content;
+    }
+  } @else {
+    @media (max-width: $breakpoint-mobile) {
+      @content;
+    }
+  }
+}

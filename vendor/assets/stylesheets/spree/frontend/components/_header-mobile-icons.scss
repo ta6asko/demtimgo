@@ -1,0 +1,26 @@
+/**
+ * Header mobile icons div styles
+ */
+.mobile-header-icon {
+  @media (min-width: $breakpoint-tablet) {
+    display: none;
+  }
+
+  a:hover {
+    text-decoration: none;
+  }
+
+  &.mobile-header-locator-icon {
+    margin-top: 2px;
+    font-size: 36px;
+  }
+
+  &.mobile-header-user-icon {
+    font-size: 41px;
+  }
+
+  &.mobile-header-phone-icon {
+    margin-top: 1px;
+    font-size: 40px;
+  }
+}

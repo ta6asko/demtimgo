@@ -1,0 +1,66 @@
+///**
+//  * @category BBNT
+//  * @category BBNT_Customer
+//  * @author Vidura Nishantha <vidura@tagpartners.co>
+//  * http://www.viduranishantha.com
+
+//  * Styling for user authorization link mobile menu ( before logged-in)
+//  */
+
+ .nav-sections{
+    .level0.level-top.authorization-link-mobile{
+        height: 63px;
+
+        @media (min-width: $breakpoint-large) {
+            display: none;
+        } 
+
+        @media (max-width: $breakpoint-small-mobile - 1px) {
+            min-height: 80px;
+         }
+
+
+        .auth-links{
+            background: url(../images/customer-account/mobile-user-menu-bg.jpg) no-repeat;
+            background-size: cover;
+            background-position-y: center;
+            display: flex;
+            justify-content: left;
+            text-transform: none;
+            width: 100%;
+            white-space: nowrap;
+
+            @media (max-width: $breakpoint-small-mobile - 1px) {
+                flex-direction: column;
+            }
+
+            .slash {
+                color: $color-white;
+                padding: 0 5px;
+
+                @media (max-width: $breakpoint-small-mobile - 1px) {
+                   display: none;
+                }
+            }
+
+            a {
+                color: $color-white;
+                font-size: 14px;
+                text-decoration: none;
+                padding: 21px 20px 21px 30px;
+                width:100%;
+
+                @media (max-width: $breakpoint-small-mobile - 1px) {
+                  font-size: 12px;
+                }
+            }
+        }
+    }
+ } 
+ 
+ /* Hiding the Authorization menu which load in the footer block before it move in to the mobile menu by mobile-authorization-menu.js */
+.page-footer {
+    .authorization-link-mobile {
+        display: none;
+    }
+}

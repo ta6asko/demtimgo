@@ -1,0 +1,29 @@
+aside.modal-custom.authentication-dropdown {
+    .field .label {
+        padding-left: 0px;
+        color: black;
+        margin-bottom: 0px;
+        margin-top: 25px;
+    }
+    
+    .control input {
+        height: 42px;
+        border: 1px solid palette(secondary, border);
+        font-size: $font-size--input;
+        color: palette(secondary, base);
+        margin-top: 9px;
+    }
+    
+    .mage-error div {
+        color: palette(accent, bright);
+    }
+      
+    .field-error span {
+        color: palette(accent, bright);
+    }
+      
+    .field._error .field._error input, input.mage-error {
+        background-color: palette(accent, error);
+        border-color: palette(accent, bright);
+    }
+}

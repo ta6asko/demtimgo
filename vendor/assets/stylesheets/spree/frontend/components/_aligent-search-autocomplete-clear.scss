@@ -1,0 +1,43 @@
+/**
+ * Styling for aligent search autocomplete search clear button
+ */
+.aligent-search-autocomplete-clear {
+ $autocomplete-top-tablet: 122px;
+ $clear-button-top-mobile: 60px;
+
+  background: none;
+  width: 40px; // change width: auto to width: 32px to fix IE issue of can't calculate left: calc(25% + 430px) correctly
+  margin: 9px;
+  padding: 0;
+  font-size: $font-size-title-1;
+  position: absolute;
+  right: 5px;
+  display: none;
+  z-index: 2;
+  top:-5px;
+  text-transform: capitalize;
+
+  &:hover {
+    background: none;
+  }
+
+  &::before {
+    content:"Clear";
+    color: palette(primary, base);
+    font-size:14px;
+    letter-spacing: 0.02px;
+    font-weight: 400;
+  }
+
+  @media (max-width: $breakpoint-large - 1px) {
+    position: fixed;
+    left: calc(25% + 415px);
+    top: $autocomplete-top-tablet;
+  }
+
+  @media (max-width: $breakpoint-tablet - 1px) {
+    top:  $clear-button-top-mobile; 
+    right: 26px;
+    left: unset;
+  }  
+}

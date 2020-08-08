@@ -1,0 +1,23 @@
+/**
+ * Header extras div styles, container of search box, sign in/join, and my bag
+ */
+.header-extras {
+  display: flex;
+  align-content: center;
+  flex-grow: 1;
+
+  @media (max-width: $breakpoint-large - 1px) {
+    flex-grow: 0;
+    padding-top: 3px;
+    padding-right: 15px;
+  }
+
+  @media (max-width: $breakpoint-tablet - 1px) {
+    justify-content: space-between;
+    width: 100vw;
+    max-width: 95vw;
+    height: 42px;
+    padding-top: 63px;
+    padding-right: 0;
+  }
+}
