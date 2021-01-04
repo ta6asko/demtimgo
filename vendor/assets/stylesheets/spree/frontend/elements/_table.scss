@@ -1,0 +1,6 @@
+/**
+ * Base styling for table elements
+ */
+table {
+  @include base-table();
+}

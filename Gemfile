@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 source 'https://rubygems.org'
 git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
@@ -23,9 +25,18 @@ gem 'bootsnap', '>= 1.4.2', require: false
 gem 'spree', '~> 4.1'
 gem 'spree_auth_devise', '~> 4.1'
 gem 'spree_gateway', '~> 3.7'
+gem 'font-awesome-rails'
+
+# Awesome Print
+gem 'awesome_print', '~> 1.8'
 
 # Supported DBs
 gem 'pg', '~> 1.2'
+
+# HAML
+gem 'hamlit', '~> 2.11.0'
+
+gem 'bootstrap', '~> 4.3.1'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console

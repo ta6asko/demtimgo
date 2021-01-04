@@ -1,0 +1,79 @@
+// Tables
+//
+// weight: 2
+//
+// `@include base-table();`
+// `@include base-table(break);` Will force text wrapping in mobile
+//
+// Markup:
+// <table class="base-table">
+//  <tr>
+//    <th>Wingspan</th>
+//    <td>36.75 in (933mm)</td>
+//  </tr>
+//  <tr>
+//    <th>Overall Length</th>
+//    <td>38.75 in (984 mm)</td>
+//  </tr>
+//  <tr>
+//    <th>Wing Area</th>
+//    <td>304 sq in (19.6 sq dm)</td>
+//  </tr>
+//  <tr>
+//    <th>Flying Weight</th>
+//    <td>3.3 lbs (1.49 kg)</td>
+//  </tr>
+//  <tr>
+//    <th>Motor Size</th>
+//    <td>BL15, 3700Kv</td>
+//  </tr>
+//  <tr>
+//    <th>Radio</th>
+//    <td>5+ Channel DSM2/DSMX Transmitter Required</td>
+//  </tr>
+// </table>
+//
+// Styleguide Base.Tables
+
+@mixin base-table($var: "") {
+  text-align: left;
+  border-spacing: 0;
+  border-collapse: collapse;
+  border: 1px solid palette(contrast, light);
+  max-width: 100%;
+  width: 100%;
+  font-size: $font-size-small;
+
+  th, dt {
+    font-weight: 600;
+    letter-spacing: 0.05em;
+    padding: 7px;
+    background: palette(contrast, light);
+    border: 1px solid palette(secondary);
+    vertical-align: top;
+
+    @if $var == break {
+      word-wrap: break-word;
+      word-break: break-word;
+    }
+  }
+
+  td, dd {
+    padding: 7px;
+    border: 1px solid palette(secondary);
+    background: palette(contrast, light);
+
+    @if $var == break {
+      word-wrap: break-word;
+      word-break: break-word;
+    }
+  }
+
+  dt, dd {
+    display: inline-block;
+    width: 50%;
+    margin: 0;
+    border: 1px solid palette(secondary); // Required as border collapse does not work on dt/dd so border needs to be halved
+    font-size: $font-size-body; // Required to reset the font-size = 0 whitespace hack added to parent <dl>
+  }
+}

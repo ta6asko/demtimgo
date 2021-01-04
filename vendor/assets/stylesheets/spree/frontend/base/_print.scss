@@ -1,0 +1,28 @@
+/**
+ * Print related common styles for all the pages
+ */
+.page-print {
+    .logo {
+        width: 260px;
+        margin: 50px auto 40px;
+        display: block;
+
+        img {
+            width: 100%;
+            height: auto;
+        }
+    }
+
+    .page-main {
+        padding-top: 0;
+    }
+
+    .nav-sections,
+    .hamburger,
+    .copyright {
+        display: none;
+    }
+}
+
+
+

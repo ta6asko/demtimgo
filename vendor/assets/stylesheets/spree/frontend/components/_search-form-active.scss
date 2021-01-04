@@ -1,0 +1,10 @@
+/**
+ * Header search box active related styles, when active class modifier is applied to search form
+ */
+.form.minisearch.active {
+  .control {
+    @media (max-width: $breakpoint-large - 1px) {
+      padding-top: 0;
+    }
+  }
+}

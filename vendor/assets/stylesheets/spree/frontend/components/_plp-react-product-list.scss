@@ -1,0 +1,35 @@
+/**
+ * PLP product list styling
+ */
+.react-plp-app-product-list {
+  list-style: none;
+  margin: 0;
+  padding-left: 10px;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+
+  @media (max-width: $breakpoint-large - 1px) {
+    padding-left: 0;
+  }
+
+  .react-plp-app-product-list__list-item {
+    display: inline-block;
+    margin: 0 0 30px;
+    padding: 1px 0 5px 20px;
+    position: relative;
+    flex-basis: calc(100% / 3);
+    max-width: calc(100% / 3);
+
+    @media (max-width: $breakpoint-plp-large - 1px) {
+      flex-basis: calc(100% / 2);
+      max-width: calc(100% / 2);
+    }
+
+    @media (max-width: $breakpoint-small - 1px) {
+      flex-basis: 100%;
+      max-width: 100%;
+      padding-left: 10px;
+    }
+  }
+}

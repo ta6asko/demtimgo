@@ -1,0 +1,129 @@
+// Icons
+//
+// Using the icon font `@include icon('home');` <br /> <br />
+//
+// weight: 1
+//
+// Markup:
+// <div class="icon-example">
+// <div class="icon icon-bag icon-hover"><code>@include icon('bag');</code></div>
+// <div class="icon icon-phone icon-hover"><code>@include icon('phone');</code></div>
+// <div class="icon icon-delivery icon-hover"><code>@include icon('delivery');</code></div>
+// <div class="icon icon-mail icon-hover"><code>@include icon('mail');</code></div>
+// <div class="icon icon-home icon-hover"><code>@include icon('home');</code></div>
+// <div class="icon icon-location-marker icon-hover"><code>@include icon('location-marker');</code></div>
+// <div class="icon icon-returns icon-hover"><code>@include icon('returns');</code></div>
+// <div class="icon icon-user icon-hover"><code>@include icon('user');</code></div>
+// <div class="icon icon-heart icon-hover"><code>@include icon('heart');</code></div>
+// <div class="icon icon-magnifying-glass icon-hover"><code>@include icon('magnifying-glass');</code></div>
+// <div class="icon icon-arrow-up icon-hover"><code>@include icon('arrow-up');</code></div>
+// <div class="icon icon-arrow-down icon-hover"><code>@include icon('arrow-down');</code></div>
+// <div class="icon icon-arrow-left icon-hover"><code>@include icon('arrow-left');</code></div>
+// <div class="icon icon-arrow-right icon-hover"><code>@include icon('arrow-right');</code></div>
+// <div class="icon icon-menu icon-hover"><code>@include icon('menu');</code></div>
+// <div class="icon icon-close icon-hover"><code>@include icon('close');</code></div>
+// <div class="icon icon-facebook"><code>@include icon('facebook');</code></div>
+// <div class="icon icon-instagram"><code>@include icon('instagram');</code></div>
+// <div class="icon icon-pinterest"><code>@include icon('pinterest');</code></div>
+// </div>
+//
+// Styleguide Icons
+
+$icons: (
+  bag: '\f07a',
+  phone: '\f10b',
+  delivery: '\e900',
+  mail: '\f003',
+  home: '\f015',
+  location-marker: '\f041',
+  returns: '\e901',
+  user: '\e907',
+  heart: '\f08a',
+  magnifying-glass: '\e986',
+  facebook: '\ea90',
+  instagram: '\ea92',
+  pinterest: '\f0d2',
+  arrow-up: '\f106',
+  arrow-down: '\f107',
+  arrow-left: '\f104',
+  arrow-right: '\f105',
+  menu: '\e906',
+  download: '\e933',
+  close: '\ea0d',
+  faq: '\f29c',
+  box: '\f187'
+);
+
+@mixin icon($icon) {
+  content: map-get($icons, $icon);
+  font-family: 'icomoon';
+  color: palette(primary);
+  speak: none;
+  font-style: normal;
+  font-weight: normal;
+  font-variant: normal;
+  text-transform: none;
+  line-height: 1;
+
+  @if $icon == 'facebook' {
+    color: #3B5998;
+  }
+
+  @if $icon == 'instagram' {
+    color: #000000;
+  }
+
+  @if $icon == 'pinterest' {
+    color: #C92228;
+  }
+}
+
+@mixin icon-hover() {
+  color: palette(primary, light);
+  cursor: pointer;
+}
+
+@mixin icon-flag($country) {
+  background-image: url('../../country_selector/#{$country}.svg');
+}
+
+@each $name, $icon in $icons {
+  .icon-#{$name}::before {
+    @include icon($name);
+  }
+}
+
+.icon-hover {
+  &:hover {
+    @include icon-hover();
+
+    &::before {
+      @include icon-hover();
+    }
+  }
+}
+
+.icon-example {
+  .icon {
+    width: 32%;
+    display: inline-block;
+    margin: 10px 0;
+    font-size: 14px;
+
+    &::before {
+      margin: 0 10px 0 0;
+      font-size: 32px;
+    }
+  }
+}
+
+@mixin icon-tick {
+  content: "";
+  display: inline-block;
+  width: 16px;
+  height: 17px;
+  position: relative;
+  background-size: cover;
+  background-position: 0;
+  background-image: url('../images/country-selector/icon-tick.svg');
+}

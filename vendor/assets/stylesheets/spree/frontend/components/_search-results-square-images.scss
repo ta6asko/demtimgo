@@ -1,0 +1,32 @@
+/**
+*  @category BBNT
+*  @category BBNT_Search_Autocomplete
+*  @author Vidura Nishantha <vidura@tagpartners.co>
+*  http://www.viduranishantha.com
+
+*  Styling for Search autocomplete results squre images
+*/
+
+.aligent-search-autocomplete__product-image-wrapper {
+	.o-imagewrap {
+		width: 100%;
+		height: 95%;
+		padding-bottom: 100%;
+		white-space: unset;
+
+		.o-image {
+			img {
+				width: 100%;
+				height: 100%;
+				object-fit: cover;
+				position: absolute;
+				top: 50%;
+				left: 50%;
+				min-width: 100%;
+				transform: translate(-50%, -50%);
+				transition: opacity .3s .2s;
+				text-align: center;
+			}
+		}
+	}
+}

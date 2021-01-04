@@ -1,0 +1,24 @@
+/**
+ * Sticky Header Style
+ */
+
+ @media (min-width: $breakpoint-mobile - 1px) {
+    .sticky-header {
+        .panel {
+            &.wrapper {
+               margin-top: -37px;
+            }
+        } 
+
+        .page-header {
+            .header-container-sticky {
+                min-height: 95px;
+
+            }
+        }
+
+        .nav-sections {
+            top: 95px;
+        }
+    }
+}

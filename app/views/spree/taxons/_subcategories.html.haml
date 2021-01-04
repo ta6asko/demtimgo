@@ -1,0 +1,18 @@
+.subcategories
+  .bootstrap-iso
+    .row.m-2
+      - subcategories = [taxon]
+      - unless taxon.children.any?
+        - subcategories.unshift(taxon.parent)
+      - subcategories.compact.each do |current_taxon|
+        - child_taxons = [current_taxon, *current_taxon.children.where(hide_from_nav: false)]
+        - child_taxons.each_with_index.map do |subcategory, index|
+          - next if subcategory == taxon
+          .col-lg-3.col-md-6.col-sm-12.col-12.col.p-2.tile
+            %a(href="#{spree.nested_taxons_path(subcategory, params: permitted_product_params)}")
+              %img.img-fluid.bb-tile-img(alt="#{subcategory.description}"
+                                         src="#{main_app.url_for(subcategory.icon.attachment)}"
+                                         title="#{subcategory.name}")
+              %span.row.bb-tile-bottom.justify-content-center
+                = subcategory.name
+

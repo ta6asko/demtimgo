@@ -1,28 +1,153 @@
-<%# leaving #spree-header div for legacy support  %>
-<% cache spree_nav_cache_key('header') do %>
-  <div id="spree-header" data-turbolinks-permanent>
-    <header id="header" class="d-flex align-items-center header-spree border-bottom">
-      <div class="container-fluid h-100 header-spree-fluid">
-        <div class="d-flex flex-nowrap align-items-center h-100">
-          <div class="d-xl-none flex-grow-1 header-spree-fluid-mobile-menu-toggler">
-            <button class="navbar-toggler border-0 px-0 d-flex" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-label="<%= Spree.t('nav_bar.show_menu') %>">
-              <%= icon(name: 'burger',
-                      width: 18.5,
-                      height: 16)  %>
-            </button>
-          </div>
-          <figure class="logo flex-grow-0 flex-xl-grow-1 order-xl-0 header-spree-fluid-logo m-0">
-            <%= logo %>
-          </figure>
-          <div id="main-nav-bar" class="flex-grow-0 d-none d-xl-block h-100 header-spree-fluid-primary-navigation">
-            <%= render partial: 'spree/shared/main_nav_bar' %>
-          </div>
-          <div id="top-nav-bar" class="flex-grow-1 header-spree-fluid-secondary-navigation">
-            <%= render partial: 'spree/shared/nav_bar' %>
-          </div>
-          <%= render partial: 'spree/shared/mobile_navigation' %>
+<div class="site-header">
+  <div class="topbar topbar-dark bg-dark">
+    <div class="container">
+      <div class="topbar-text text-nowrap d-none d-md-inline-block">
+        <i class='fa fa-mobile'></i>
+        <span class="text-muted mr-1">Support</span>
+        <a class="topbar-link" href="tel:00331697720">(00) 99 999 9999</a>
+        <i class="fa fa-envelope-o"></i>
+        <a class="topbar-link" href="tel:">demtimgo@gmail.com</a>
+      </div>
+      <div class="ml-3 text-nowrap">
+        <div class="topbar-text dropdown disable-autohide"><a class="topbar-link dropdown-toggle" href="#" data-toggle="dropdown"><img class="mr-2" width="20" alt="English">Eng / $</a>
+          <ul class="dropdown-menu dropdown-menu-right">
+            <li class="dropdown-item">
+              <select class="custom-select custom-select-sm">
+                <option value="usd">$ USD</option>
+                <option value="eur">€ EUR</option>
+                <option value="ukp">£ UKP</option>
+                <option value="jpy">¥ JPY</option>
+              </select>
+            </li>
+            <li><a class="dropdown-item pb-1" href="#"><img class="mr-2" width="20"  alt="Français">Français</a></li>
+            <li><a class="dropdown-item pb-1" href="#"><img class="mr-2" width="20"  alt="Deutsch">Deutsch</a></li>
+            <li><a class="dropdown-item" href="#"><img class="mr-2" width="20"  alt="Italiano">Italiano</a></li>
+          </ul>
         </div>
       </div>
-    </header>
+    </div>
   </div>
-<% end %>
+
+  <div class="navbar-sticky bg-light">
+    <div class="navbar navbar-expand-lg navbar-light">
+      <div class="container">
+        <a class="navbar-brand d-none d-sm-block mr-3 flex-shrink-0" href="/" style="min-width: 7rem;"><img width="142" src="https://i.ibb.co/LtR3jP5/logo.png" alt="Demtimgo"></a>
+        <a class="navbar-brand d-sm-none mr-2" href="/" style="min-width: 4.625rem;"><img width="142" src="https://i.ibb.co/LtR3jP5/logo.png" alt="Demtimgo"></a>
+        <div class="input-group-overlay d-none d-lg-flex mx-4">
+          <input class="form-control appended-form-control" type="text" placeholder="Search for products">
+          <div class="input-group-append-overlay">
+            <span class="input-group-text">
+              <i class="fa fa-search"></i>
+            </span>
+          </div>
+        </div>
+        <div class="navbar-toolbar d-flex flex-shrink-0 align-items-center">
+          <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <a class="navbar-tool navbar-stuck-toggler" href="#">
+            <span class="navbar-tool-tooltip">Expand menu</span>
+            <div class="navbar-tool-icon-box">
+              <i class="navbar-tool-icon czi-menu"></i>
+            </div>
+          </a>
+          <a class="navbar-tool ml-1 ml-lg-0 mr-n1 mr-lg-2" href="#signin-modal" data-toggle="modal">
+            <div class="navbar-tool-icon-box">
+              <i class="navbar-tool-icon fa fa-user"></i>
+            </div>
+            <div class="navbar-tool-text ml-n3">
+              <small>Hello, Sign in</small>My Account
+            </div>
+          </a>
+          <div class="navbar-tool dropdown ml-3"><a class="navbar-tool-icon-box bg-secondary dropdown-toggle" href="shop-cart.html"><span class="navbar-tool-label">4</span><i class="navbar-tool-icon fa fa-shopping-cart"></i></a><a class="navbar-tool-text" href="shop-cart.html"><small>My Cart</small>$265.00</a>
+            <!-- Cart dropdown-->
+            <div class="dropdown-menu dropdown-menu-right" style="width: 20rem;">
+              <div class="widget widget-cart px-3 pt-2 pb-3">
+                <div style="height: 15rem;" data-simplebar="init" data-simplebar-auto-hide="false"><div class="simplebar-wrapper" style="margin: 0px -16px 0px 0px;"><div class="simplebar-height-auto-observer-wrapper"><div class="simplebar-height-auto-observer"></div></div><div class="simplebar-mask"><div class="simplebar-offset" style="right: 0px; bottom: 0px;"><div class="simplebar-content-wrapper" style="height: auto; overflow: hidden;"><div class="simplebar-content" style="padding: 0px 16px 0px 0px;">
+                  <div class="widget-cart-item pb-2 border-bottom">
+                    <button class="close text-danger" type="button" aria-label="Remove"><span aria-hidden="true">×</span></button>
+                    <div class="media align-items-center"><a class="d-block mr-2" href="shop-single-v1.html"><img width="64" src="" alt="Product"></a>
+                      <div class="media-body">
+                        <h6 class="widget-product-title"><a href="shop-single-v1.html">Women Colorblock Sneakers</a></h6>
+                        <div class="widget-product-meta"><span class="text-accent mr-2">$150.<small>00</small></span><span class="text-muted">x 1</span></div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="widget-cart-item py-2 border-bottom">
+                    <button class="close text-danger" type="button" aria-label="Remove"><span aria-hidden="true">×</span></button>
+                    <div class="media align-items-center"><a class="d-block mr-2" href="shop-single-v1.html"><img width="64" src="" alt="Product"></a>
+                      <div class="media-body">
+                        <h6 class="widget-product-title"><a href="shop-single-v1.html">TH Jeans City Backpack</a></h6>
+                        <div class="widget-product-meta"><span class="text-accent mr-2">$79.<small>50</small></span><span class="text-muted">x 1</span></div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="widget-cart-item py-2 border-bottom">
+                    <button class="close text-danger" type="button" aria-label="Remove"><span aria-hidden="true">×</span></button>
+                    <div class="media align-items-center"><a class="d-block mr-2" href="shop-single-v1.html"><img width="64" src="" alt="Product"></a>
+                      <div class="media-body">
+                        <h6 class="widget-product-title"><a href="shop-single-v1.html">3-Color Sun Stash Hat</a></h6>
+                        <div class="widget-product-meta"><span class="text-accent mr-2">$22.<small>50</small></span><span class="text-muted">x 1</span></div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="widget-cart-item py-2 border-bottom">
+                    <button class="close text-danger" type="button" aria-label="Remove"><span aria-hidden="true">×</span></button>
+                    <div class="media align-items-center"><a class="d-block mr-2" href="shop-single-v1.html"><img width="64" src="" alt="Product"></a>
+                      <div class="media-body">
+                        <h6 class="widget-product-title"><a href="shop-single-v1.html">Cotton Polo Regular Fit</a></h6>
+                        <div class="widget-product-meta"><span class="text-accent mr-2">$9.<small>00</small></span><span class="text-muted">x 1</span></div>
+                      </div>
+                    </div>
+                  </div>
+                </div></div></div></div><div class="simplebar-placeholder" style="width: 0px; height: 0px;"></div></div><div class="simplebar-track simplebar-horizontal" style="visibility: hidden;"><div class="simplebar-scrollbar simplebar-visible" style="width: 0px; display: none;"></div></div><div class="simplebar-track simplebar-vertical" style="visibility: hidden;"><div class="simplebar-scrollbar simplebar-visible" style="height: 0px; display: none;"></div></div></div>
+                <div class="d-flex flex-wrap justify-content-between align-items-center py-3">
+                  <div class="font-size-sm mr-2 py-2"><span class="text-muted">Subtotal:</span><span class="text-accent font-size-base ml-1">$265.<small>00</small></span></div><a class="btn btn-outline-secondary btn-sm" href="shop-cart.html">Expand cart<i class="czi-arrow-right ml-1 mr-n1"></i></a>
+                </div><a class="btn btn-primary btn-sm btn-block" href="checkout-details.html"><i class="czi-card mr-2 font-size-base align-middle"></i>Checkout</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <% if spree_navigation_data.any? %>
+      <div class="navbar navbar-expand-lg navbar-light navbar-stuck-menu mt-n2 pt-0 pb-2">
+        <div class="grid--full">
+          <div class="grid__item">
+             <div class="nav-container">
+                <span class="nav-container__close icon icon-x hide"></span>
+                <ul class="site-nav" id="AccessibleNav">
+                  <li class="site-nav--new">
+                    <a href="/" class="site-nav__link">Home</a>
+                  </li>
+                  <% spree_navigation_data.each do |root| %>
+                    <li class="site-nav--has-dropdown site-nav--silk-flowers" aria-haspopup="true">
+                      <%= link_to root[:title], root[:url], class: "site-nav__link" %>
+                        <span class="icon-fallback-text medium--hide large--hide">
+                        <span class="icon icon-plus right" aria-hidden="true"></span>
+                        </span>
+                      <% if root[:items].present? %>
+                        <div class="site-nav__dropdown-container wide-menu">
+                          <div class="wrapper">
+                            <ul class="site-nav__dropdown items-15">
+                              <% root[:items].each do |item| %>
+                                <li>
+                                  <%= link_to item[:title], item[:url], class: "site-nav__link" %>
+                                </li>
+                              <% end %>
+                            </ul>
+                          </div>
+                        </div>
+                      <% end %>
+                    </li>
+                  <% end %>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    <% end %>
+  </div>
+</div>

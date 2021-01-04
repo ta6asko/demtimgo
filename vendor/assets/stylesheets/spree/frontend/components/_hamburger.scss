@@ -1,0 +1,130 @@
+/**
+ * Styles for hamburger menu icon and animations
+ */
+.hamburger {
+  $width--hamburger-layer: 32px;
+  $width--hamburger-layer-mobile: 27px;
+  $height--hamburger-layer: 2px;
+  $space--hamburger-layer-mobile: 10px;
+
+  @media (min-width: $breakpoint-large) {
+    display: none;
+  }
+
+  width: $width--hamburger-layer;
+  padding: 0;
+  height: 24px;
+  display: inline-block;
+  cursor: pointer;
+  background-color: transparent;
+
+  -webkit-tap-highlight-color: rgba(0, 0, 0, 0); // transparent might not work in some mobile devices so add this line in case it's not working
+  -webkit-tap-highlight-color: transparent;
+
+  @media (max-width: $breakpoint-tablet - 1px) {
+    width:  $width--hamburger-layer-mobile;
+  }
+
+  @media (min-width: $breakpoint-tablet) {
+    .hamburger-box {
+      top: 3px;
+    }
+  }
+
+  &:hover {
+    opacity: 1;
+    background-color: palette(contrast, light);
+  }
+
+  &.hamburger--squeeze {
+    .hamburger-inner {
+      transition-duration: 0.075s;
+      transition-timing-function: cubic-bezier(0.55, 0.055, 0.675, 0.19);
+    }
+
+    .hamburger-inner::before {
+      transition: top 0.075s 0.12s ease, opacity 0.075s ease;
+    }
+
+    .hamburger-inner::after {
+      transition: bottom 0.075s 0.12s ease, transform 0.075s cubic-bezier(0.55, 0.055, 0.675, 0.19);
+    }
+  }
+
+  &.hamburger--squeeze.is-active {
+    .hamburger-inner {
+      transform: rotate(45deg);
+      transition-delay: 0.12s;
+      transition-timing-function: cubic-bezier(0.215, 0.61, 0.355, 1);
+    }
+
+    .hamburger-inner::before {
+      top: 0;
+      opacity: 0;
+      transition: top 0.075s ease, opacity 0.075s 0.12s ease;
+    }
+
+    .hamburger-inner::after {
+      bottom: 0;
+      transform: rotate(-90deg);
+      transition: bottom 0.075s ease, transform 0.075s 0.12s cubic-bezier(0.215, 0.61, 0.355, 1);
+    }
+  }
+
+  .hamburger-box {
+    width: $width--hamburger-layer;
+    height: 24px;
+    display: inline-block;
+    position: relative;
+
+    @media (max-width: $breakpoint-tablet - 1px) {
+      width: $width--hamburger-layer-mobile;
+    }
+  }
+
+  .hamburger-inner {
+    display: block;
+    top: 50%;
+    margin-top: -1px;
+
+    &,
+    &::before,
+    &::after {
+      width: $width--hamburger-layer;
+      height: $height--hamburger-layer;
+      background-color: palette(primary);
+      border-radius: 4px;
+      position: absolute;
+      transition-property: transform;
+      transition-duration: 0.15s;
+      transition-timing-function: ease;
+
+      @media (max-width: $breakpoint-tablet - 1px) {
+        width: $width--hamburger-layer-mobile;
+      }
+    }
+
+    &::before,
+    &::after {
+      content: "";
+      display: block;
+    }
+
+    &::before {
+      top: -12px;
+
+      @media (max-width: $breakpoint-tablet - 1px) {
+        top: - $space--hamburger-layer-mobile;
+       }
+
+    }
+
+    &::after {
+      bottom: -12px;
+
+      @media (max-width: $breakpoint-tablet - 1px) {
+        bottom: - $space--hamburger-layer-mobile;
+       }
+    }
+  }
+}

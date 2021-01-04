@@ -1,0 +1,53 @@
+// Variables
+//
+// $transition             - all 0.3s ease;
+// $page-width-full-width  - 1600px;
+// $page-width-content     - 1170px;
+// $page-width-pdp         - 1170px;
+// $page-width-max         - 1170px;
+// $nav-width-max:         - 1222px;
+// $breakpoint-country-selector - 1414px;
+// $breakpoint-x-large:    - 1920px;
+// $breakpoint-plp-large:  - 1200px;
+// $breakpoint-large       - 1024px;
+// $breakpoint-medium      - 800px;
+// $breakpoint-tablet      - 768px;
+// $breakpoint-small       - 550px;
+// $breakpoint-mobile      - 480px;
+// $breakpoint-small-mobile: - 375px;
+// $breakpoint-nav-menu-mobile-large: - 781px;
+// $breakpoint-nav-menu-mobile-medium: - 581px;
+// $breakpoint-nav-menu-mobile-small: - 381px;
+//
+// Styleguide Tools.Variables
+
+$transition: all 0.5s ease;
+
+// Size variables
+$page-width-full-width: 1600px;
+$page-width-content: 1170px;
+$page-width-pdp: 1170px;
+$page-width-max: 1170px;
+$nav-width-max: 1222px;
+$breakpoint-country-selector: 1414px;
+$breakpoint-x-large: 1920px;
+$breakpoint-plp-large: 1200px;
+$breakpoint-large: 1024px;
+$breakpoint-medium: 800px;
+$breakpoint-tablet: 768px;
+$breakpoint-small: 550px;
+$breakpoint-mobile: 480px;
+$breakpoint-small-mobile: 375px;
+$breakpoint-nav-menu-mobile-large: 781px;
+$breakpoint-nav-menu-mobile-medium: 581px;
+$breakpoint-nav-menu-mobile-small: 381px;
+
+// Homepage layout variables
+$full-width: 1600;
+$site-width: 1600;
+$spacing: percentage(10/$site-width);
+$tile-width: percentage($site-width/3)/$site-width;
+$span-1-4-col: ($tile-width*0.75);
+$span-1-col: $tile-width;
+$span-1-5-col: ($tile-width*1.5);
+$span-2-col: ($tile-width*2);

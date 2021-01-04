@@ -1,0 +1,142 @@
+/**
+ * Override styling for Afterpay in various parts of the site, we don't have single root selector
+ * as afterpay selectors are from different files and don't belong to same parent selector, so we
+ * just scatter them inside this file
+ */
+#afterpaypayovertime-method:not(._active) {
+  div:last-child {
+    display: none;
+  }
+}
+
+#afterpaypayovertime-method {
+  .payment-method-billing-address {
+    display: none;
+  }
+  
+  .afterpay-checkout-redirect {
+    .instalment-footer {
+      width: 57% !important; // overwrite afterpay styling
+
+      @media(max-width: $page-width-content - 1px) {
+        width: 100% !important; // overwrite afterpay styling
+      }
+    }
+
+    .actions-toolbar {
+      .primary {
+        justify-content: center;
+      }
+    }
+  }
+
+  .payment-method-content {
+    margin: 0;
+  }
+
+  .fieldset {
+    .label {
+      font-size: 14px;
+      margin-bottom: 10px;
+    }
+  }
+
+  .actions-toolbar {
+    @media (max-width: $page-width-content - 1px) {
+      width: 100% !important; // overwrite afterpay styling
+      margin-top: 10px !important; // overwrite afterpay styling
+    }
+
+    .primary {
+      display: flex;
+      justify-content: flex-end;
+
+      @media (max-width: $breakpoint-tablet - 1px) {
+        width: 100%;
+      }
+    }
+
+    .action.primary.checkout {
+      font-size: 14px;
+      height: 36px;
+      padding-top: 10px;
+    }
+
+    .action-update {
+      width: 100px;
+      margin-right: 10px;
+    }
+
+    .action-cancel {
+      width: 100px;
+    }
+  }
+
+  .payment-method-note h3, // force h3 to be size 14px as we don't change afterpay template
+  .cost,
+  .icon,
+  .afterpay_instalments_amount,
+  .instalment {
+    font-size: 14px;
+  }
+
+  div:last-child {
+    // This was used to add display:none to this empty div that is added inside the Afterpay payment method on the checkout
+    // purely to clear floats, but I don't know which floats that is
+  }
+}
+
+// Need specificity _and_ !important to overcome the use of !important in Afterpay's CSS
+.modal-popup.afterpay-learn-more {
+  .modal-header {
+    .action-close {
+      padding: 0 !important;
+    }
+  }
+
+  // PDP page afterpay popup style fixes 
+  .modal-content {
+    width: 100%;
+    padding: 0px;
+
+    .afterpay-modal-image {
+      width: 100%;
+
+      @media (max-width: $breakpoint-tablet - 1px) {
+        display: none;
+      }
+    }
+
+    .afterpay-modal-image-mobile {
+      display: none;
+
+      @media (max-width: $breakpoint-tablet - 1px) {
+        width: 100%;
+        display: block;
+      }      
+    }
+  }
+}
+
+// The following block will fix an issue that will occur as the page loads, and mage-init has yet to grab all modals
+// The issue is the images that are displayed in the Afterpay modal will flash up on screen
+#afterpay-modal-popup {
+  display: none;
+}
+
+.modals-wrapper {
+  #afterpay-modal-popup {
+    display: inherit;
+  }
+}
+// End of afterpay modal flashing fix
+
+// PDP page afterpay styling to the section - 4 interest-free payments of $x.xx with
+.afterpay-installments {
+  .afterpay-nowrap {
+    .afterpay_instalments_logo {
+      content: url(../images/payment-methods/afterpay-badge-blackonmint.png);
+      height: 18px;
+    }
+  }
+}

@@ -1,0 +1,161 @@
+/**
+ * Styling for country selector mobile
+ */
+
+ $country-codes: 'tr', 'uk';
+
+.nav-sections {
+
+/* Have added .nav-sections .level0.level-top in to this style class to properly overide the styles from the navigation */
+
+    .level0.level-top.country-selector-mobile {
+
+        @media (max-width: $breakpoint-tablet - 1px) {
+            overflow: visible;
+            background-color: palette(primary,background-grey);
+            display: flex;
+        }
+
+        @media (min-width: $breakpoint-tablet) {
+            display: none;
+        }
+
+        .show-country-selector-mobile {
+            padding-right: 20px;
+            width: 100%;
+
+            &:after {
+                display: none;
+            }
+
+            .country {
+                font-size: 12px;
+                text-transform: none;
+                display: flex;
+                flex: auto;
+                letter-spacing: 0.01em;
+                color: palette(secondary, base);
+
+                &::before {
+                    content: '';
+                }
+
+                @each $country-code in $country-codes {
+                    &.country--#{$country-code} {
+                        .country-icon-container {
+                            display: flex;
+
+
+                            &::before {
+                                @include icon-flag($country-code);
+                                content: "";
+                                background-size: cover;
+                                margin-right: 10px;
+                                width: 27px;
+                                height:20px;
+                                background-position: 0;
+                            }
+                        }
+                    }
+                }
+
+                .country-text-container {
+                    display: flex;
+                    flex: auto;
+                    flex-wrap: wrap;
+                    line-height: 18px;
+
+                    .country-text{
+                        margin-right: 3px;
+                    }
+                }
+
+                .change-link {
+                    margin: 0 0 0 auto;
+                    line-height: 18px;
+                    color: palette(primary, mobile-menu-item-active-background);
+                }
+            }
+        }
+
+        .submenu-sticky-header {
+            text-transform: uppercase;
+        }
+
+        .submenu {
+            .submenu-content {
+                .column__title {
+                    padding: 30px;
+
+                    h4 {
+                        font-size: 14px;
+                        text-transform: initial;
+                        font-weight: 600;
+                        padding-top: 0;
+                        color: palette(primary, mobile-menu-item-active-background);
+                    }
+
+                    .country-des {
+                        font-size: 13px;
+                        line-height: 22px;
+                        text-transform: none;
+                        font-weight: 400;
+                        letter-spacing: 0;
+                        color: palette(secondary, dark);
+                    }
+                }
+
+                .country-selector {
+                    display: block;
+                    position: relative;
+                    left: 0;
+                    top:0;
+                    box-shadow: unset;
+                    width: 100%;
+                    border-top: 1px solid palette(secondary, mobile-menu-item-background);
+
+                    @each $country-code in $country-codes {
+                        &.current-country--#{$country-code} {
+                            .country--#{$country-code} {
+                                background-color: $white-shade ;
+
+                                &::after {
+                                    @include icon-tick;
+                                    margin: 0 0 0 auto;
+                                }
+                            }
+                        }
+
+                        .country--#{$country-code} {
+                            &::before {
+                                @include icon-flag($country-code);
+                                content: "";
+                                background-size: cover;
+                                margin-right: 10px;
+                                width: 27px;
+                                background-position: 0;
+                            }
+                        }
+                    }
+
+                    .country-selector__list {
+                        overflow: visible;
+
+                        .country {
+                            border-bottom: 1px solid palette(secondary, mobile-menu-item-background);
+                            padding: 22px 20px 20px 30px;
+
+                            .country-selector__list__li-text {
+                                text-transform: none;
+                                font-size: 14px;
+                                letter-spacing: 0.02em;
+                                left: 8px;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+
+    }
+}

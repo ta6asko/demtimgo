@@ -1,0 +1,17 @@
+/**
+ * Override Add This(Social Sharing) styling
+ */
+.at-share-btn-elements {
+  .at-icon-wrapper.at-share-btn {
+    margin: 0;
+  }
+
+  .at-icon-wrapper.at-share-btn:focus {
+    transform: none;
+  }
+
+  .at-icon-wrapper.at-share-btn:hover {
+    transform: none;
+  }
+}
+

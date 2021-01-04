@@ -1,0 +1,288 @@
+/**
+ * Navigation (Header menus) related common styles for all the pages
+ */
+.nav-sections {
+  $height--tablet-header: 149px;
+  $height--mobile-header: 134px;
+  $height--nav-menu-link: 63px;
+  $font-size--megamenu-subheading: $font-size-title-5;
+  $font-size--megamenu-item-title: $font-size-title-5;
+  $transition--duration: 0.38s;
+  $transition--desktop-nav-menu-duration: 0s;
+  $transition--desktop-nav-menu-delay: 0.5s;
+  $transition--effect: ease-in-out;
+
+  background-color: palette(contrast, light);
+  z-index: 4;
+  transition: top .3s ease-in-out;
+  padding-top: 20px;
+  margin-top: -20px;
+
+  @media (min-width: $breakpoint-large) {
+    position: fixed;
+    left: 0;
+    top: 130px;
+    right: 0;
+    border-bottom: 1px solid palette(secondary, light-border);
+  }
+
+  @media (max-width: $breakpoint-large - 1px) {
+    position: fixed;
+    padding-top: 0;
+    padding-bottom: 0;
+    border-bottom: 0;
+    z-index: 102; // set z-index to be greater than nav-open-overlay (z-index: 101)
+    overflow: hidden;
+    top: $height--tablet-header;
+    left: 0;
+    width: 0;
+    height: calc(100% - #{$height--tablet-header} + 20px); // menu height is 100% minus header height + 20px so that scroll bar can scroll to last item
+    transform: translateX(0); // creating a new containing block for submenu so that we can hide submenu by transforming it to right-hand side of menu
+    transition: #{$transition--duration} width #{$transition--effect};
+    font-weight: bold;
+  }
+
+  @media (max-width: $breakpoint-tablet - 1px) {
+    top: $height--mobile-header;
+    height: calc(100% - #{$height--mobile-header} + 20px); // Have added + 20px to the header to fix the header bottom spacing issue.
+  }
+
+  .section-items {
+    max-width: $nav-width-max;
+    width: 100%;
+    margin-left: auto;
+    margin-right: auto;
+    padding-left: 0;
+    padding-right: 0;
+
+    @media (max-width: $nav-width-max - 1px) and (min-width: $breakpoint-large) {
+      padding-left: 5px;
+      padding-right: 5px;
+    }
+  }
+
+  .nav-sections-item-title {
+    display: none;
+  }
+
+  .navigation {
+    display: block;
+    font-weight: 400;
+    height: inherit;
+    left: auto;
+    overflow: inherit;
+    padding: 0;
+    position: relative;
+    top: 0;
+
+    @media (max-width: $breakpoint-large - 1px) {
+      @include nav-menu-order(10);
+
+      opacity: 0;
+      transition: #{$transition--duration} opacity #{$transition--effect};
+    }
+  }
+
+  .nav-menu-list {
+    @include resetUL();
+    position: relative;
+    letter-spacing: 0.05em;
+    display: flex;
+
+    @media (min-width: $breakpoint-large) {
+      justify-content: space-between;
+      width: 100%;
+    }
+
+    @media (max-width: $breakpoint-large - 1px) {
+      flex-direction: column;
+      overflow-x: hidden; // we have translateX for submenu in position, so hiding x scroll bar
+    }
+  }
+
+  .nav-menu--sale .level-top {
+    color: palette(accent, bright);
+  }
+
+  .nav-menu--hide-desktop {
+    @media (min-width: $breakpoint-large) {
+      display: none !important; // To provide the ability to force hiding menu item on desktop view requested by client
+    }
+  }
+
+  .level0.level-top {
+    font-size: $font-size-nav-1;
+    text-transform: uppercase;
+    border-top: 0;
+
+    @media (min-width: $breakpoint-large) {
+      display: inline-block;
+    }
+
+    @media (max-width: $breakpoint-large - 1px) {
+      display: block;
+      font-size: $font-size--megamenu-item-title;
+      padding: 0;
+      border-bottom: 1px solid palette(secondary, border);
+      margin: 0;
+      min-height: $height--nav-menu-link;
+      overflow: hidden;
+    }
+  }
+
+  .level0.level-top .level-top,
+  .level0.level-top .submenu-sticky-header { // a elements including sticky header link underneath nav menu list item
+    text-decoration: none;
+    position: relative;
+
+    @media (min-width: $breakpoint-large) {
+      display: inline-block;
+      padding: 13px 17px 24px;
+    }
+
+    @media (min-width: $page-width-content) {
+      padding: 13px 25px 24px;
+    }
+
+    @media (min-width: $nav-width-max) {
+      padding: 13px 28px 24px;
+    }
+
+    @media (max-width: $breakpoint-large - 1px) {
+      display: block;
+      padding: 22px 0 19px 30px;
+      transition: #{$transition--duration} transform #{$transition--effect};
+      white-space: nowrap;
+    }
+  }
+
+  .level0.level-top:last-child {
+    @media (min-width: $breakpoint-large) {
+      margin-right: 0;
+      padding-right: 0;
+    }
+  }
+
+  .level0.level-top.nav--with-submenu .level-top,
+  .level0.level-top.nav--with-submenu .submenu-sticky-header { // a element underneath nav list item with submenu
+    @media (max-width: $breakpoint-large - 1px) {
+      font-size: $font-size--megamenu-subheading;
+      letter-spacing: 0.07em;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+  }
+
+  .level0.level-top.nav--with-submenu .level-top::after {
+    @media (max-width: $breakpoint-large - 1px) {
+      @include icon(arrow-right);
+      margin-right: 20px;
+    }
+  }
+
+  .level0.level-top.nav--with-submenu .submenu-sticky-header { // styling for sticky header link of submenu
+    display: none;
+
+    @media (max-width: $breakpoint-large - 1px) {
+      display: block;
+      position: fixed;
+      top: 0;
+      left: 1px; // fix mobile styling when sometimes the sticky link can be seen
+      width: 100%;
+      background-color: palette(primary, mobile-menu-item-active-background);
+      color: palette(contrast, light);
+      font-weight: normal;
+      text-align: left;
+      justify-content: flex-start;
+      padding-left: 20px;
+      min-height: $height--nav-menu-link;
+      transform: translateX(100%);
+      transition: #{$transition--duration} transform #{$transition--effect};
+      pointer-events: none;
+      margin: 0;
+    }
+  }
+
+  .level0.level-top.nav--with-submenu .submenu-sticky-header::before {
+    @media (max-width: $breakpoint-large - 1px) {
+      @include icon(arrow-left);
+      color: palette(contrast, light);
+      margin-right: 10px;
+    }
+  }
+
+  .level0.level-top.nav--with-submenu .submenu-sticky-header:hover,
+  .level0.level-top.nav--with-submenu .submenu-sticky-header:hover::before {
+    @media (max-width: $breakpoint-large - 1px) {
+      color: palette(secondary, tab);
+    }
+  }
+
+  .level0.level-top.nav--with-submenu.active .submenu-sticky-header {
+    @media (max-width: $breakpoint-large - 1px) {
+      left: 0;
+      transform: translateX(0);
+      pointer-events: initial;
+    }
+  }
+
+  .level0.level-top.nav--with-submenu .level0.submenu { //submenu underneath nav list item with submenu
+    background: palette(contrast, light);
+    border: 1px solid palette(secondary, light-border);
+    border-left: 0;
+    border-right: 0;
+    position: absolute;
+    z-index: 1;
+
+    @media (min-width: $breakpoint-large) {
+      visibility: hidden;
+      width: 100vw;
+      left: 50%;
+      transform: translateX(-50%);
+      transition: #{$transition--desktop-nav-menu-duration} visibility #{$transition--effect} #{$transition--desktop-nav-menu-delay};
+    }
+
+    @media (max-width: $breakpoint-large - 1px) {
+      display: block;
+      position: fixed;
+      top: $height--nav-menu-link;
+      left: 0;
+      bottom: 0;
+      width: 100%;
+      height: calc(100% - #{$height--nav-menu-link});
+      overflow-y: auto;
+      border: 0;
+      padding: 0;
+      transform: translateX(100%);
+      transition: #{$transition--duration} transform #{$transition--effect};
+      pointer-events: none;
+    }
+  }
+
+  .level0.level-top.nav--with-submenu.active .level0.submenu {
+    @media (min-width: $breakpoint-large + 1px) { // hide active submenu in desktop except for 1024px
+      visibility: hidden;
+    }
+
+    @media (max-width: $breakpoint-large) { // display active submenu in 1024px and below
+      visibility: visible;
+    }
+
+    @media (max-width: $breakpoint-large - 1px) {
+      transform: translateX(0);
+      pointer-events: initial;
+    }
+  }
+
+  .level0.level-top.nav--with-submenu:hover .level0.submenu,
+  .level0.level-top.nav--with-submenu.active:hover .level0.submenu {
+    @media (min-width: $breakpoint-large + 1px) {
+      // min-width starts from 1025px because 1024px is an exception in this case, we don't want hover
+      // styling for tablet so that submenu can be closed when click on menu item again
+      visibility: visible;
+    }
+  }
+}
+
+

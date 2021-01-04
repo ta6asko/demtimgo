@@ -1,0 +1,41 @@
+.react-plp-app {
+  padding-top: 20px;
+  display: flex;
+
+  @media (max-width: $breakpoint-large - 1px) {
+    padding-right: 13px;
+  }
+
+  @media (max-width: $breakpoint-mobile - 1px) {
+    padding-right: 9px;
+  }
+
+  .react-plp-app__filters {
+    width: 100%;
+    max-width: 280px;
+
+    @media (max-width: $breakpoint-large - 1px) {
+      z-index: 2;
+      position: fixed;
+      top: 140px;
+      left: 0;
+      bottom: 0;
+      max-width: none;
+      width: 100vw;
+      margin-top: 0;
+      display: none;
+    }
+
+    @media (max-width: $breakpoint-tablet - 1px) {
+      top: 70px;
+    }
+  }
+
+  .react-plp-app-product-filters__header {
+    display: none;
+  }
+
+  .react-plp-app__results {
+    width: 100%;
+  }
+}

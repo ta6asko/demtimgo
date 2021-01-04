@@ -1,0 +1,25 @@
+/**
+ * Atomic classes
+ * These are like utility class names. The name of the class will generally indicate what applying it will do.
+ */
+
+.hidden {
+  display: none !important; // Needs important to overcome specificity in whichever context it's used
+}
+
+.invisible {
+  opacity: 0 !important; // Needs important to overcome specificity in whichever context it's used
+
+  // Make sure a user can't click something that is invisible
+  > * {
+    pointer-events: none;
+  }
+}
+
+.no-scroll {
+  overflow: hidden;
+
+  @include small-only() {
+    position: fixed; // iOS background scroll fix
+  }
+}

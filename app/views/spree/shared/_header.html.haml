@@ -1,0 +1,113 @@
+.page-wrapper
+  %header.page-header
+    .header-container-sticky
+      .panel.wrapper
+        .panel.header
+          %ul.header.links
+            %li
+              .header-links__info
+                %a(href='javascript:void(0)') About Us
+            %li.track-order-link
+              .header-links__info
+                .icon.icon-delivery.icon-hover.locator-icon--container
+                  %a(href='javascript:void(0)')
+                    Track Your Order
+            %li
+              .header-links__info
+                .icon.icon-location-marker.icon-hover.locator-icon--container
+                  %a(href='javascript:void(0)') Store Locator
+            %li.nav.item.country-selector__wrap{"data-block" => "country-selector"}
+              %a.show-country-selector{:href => "javascript:void(0)"}
+                %span.country.country--tr{"data-country-code" => "tr", "data-js" => "current-country"}
+                  %span.country-name Turkey
+              .ui-dialog.ui-widget.ui-widget-content.ui-corner-all.ui-front.mage-dropdown-dialog{"aria-describedby" => "ui-id-1", :role => "dialog", :style => "display: none;", :tabindex => "-1"}
+                #ui-id-1.country-selector.ui-dialog-content.ui-widget-content{"data-role" => "dropdownDialog", :style => "display: block;"}
+                  %ul.country-selector__list{"data-js" => "country-selector"}
+                    %li
+                      %span.country.country--tr{"data-country-code" => "tr"}
+                        %span.country-selector__list__li-text Turkey
+                    %li
+                      %span.country.country--uk{"data-country-code" => "uk"}
+                        %span.country-selector__list__li-text England
+      .header.content
+        .header-logo-container
+          %button.hamburger.hamburger--squeeze
+            .hamburger-box
+              %span.hamburger-inner
+          %strong.logo
+            %img{:src => "https://i.ibb.co/LtR3jP5/logo.png"}
+        .header-extras
+          .block.block-search
+            .block.block-title
+              %strong Search
+            .block.block-content
+              %form#search_mini_form.form.minisearch
+                .search.overlay
+                .field.search
+                  %label.label(for='search')
+                    %span Search
+                  .control
+                    %button.action.search(disabled='disabled' title='Search' type='submit')
+                    %button.aligent-search-autocomplete-clear(type='button')
+                    %input#search.input-text.aligent-search-autocomplete-input{"aria-autocomplete" => "both", "aria-haspopup" => "false", :autocomplete => "off", :maxlength => "128", :name => "q", :placeholder => "Search...", :role => "combobox", :type => "text", :value => ""}
+                    #search_autocomplete.search-autocomplete.aligent-search-autocomplete
+          .mobile-header-icon.mobile-header-locator-icon
+            %a(href='javascript:void(0)')
+              %span.icon.icon-location-marker
+          .authorization-link{"data-label" => "or"}
+            .mobile-header-icon.mobile-header-user-icon
+              %a(href='javascript:void(0)')
+                %div.icon.icon-user
+            .icon.icon-user.auth-icon.icon-hover
+              .auth-links
+                %a(href='javascript:void(0)') Sign In
+                %span.slash |
+                %a(href='javascript:void(0)') Join
+          .mobile-header-icon.mobile-header-phone-icon
+            %a(href='javascript:void(0)')
+              %span.icon.icon-phone
+          .minicart-wrapper{"data-block" => "minicart"}
+            %a.action.showcart{"data-bind" => "scope: 'minicart_content'", :href => "#"}
+              %span.text Cart
+              %span.counter.qty{"data-bind" => "css: { empty: !!getCartParam('summary_count') == false && !isLoading() }, blockLoader: isLoading"}
+                %span.counter-number
+                  / ko text: getCartParam('summary_count')
+                  1
+                  / /ko
+                %span.counter-label
+                  / ko if: getCartParam('summary_count')
+                  / ko text: getCartParam('summary_count')
+                  1
+                  / /ko
+                  / ko i18n: 'items'
+                  %span items
+                  / /ko
+                  / /ko
+
+  .nav-open-overlay
+  .sections.nav-sections
+    .section-items.nav-sections-items{:role => "tablist"}
+      .section-item-title.nav-sections-item-title.active{"aria-controls" => "store.menu", "aria-expanded" => "true", "aria-selected" => "false", "data-collapsible" => "true", "data-role" => "collapsible", :role => "tab", :tabindex => "0"}
+        %a.nav-sections-item-switch{"data-toggle" => "switch", :href => "#store.menu"}
+          Menu
+      .section-item-content.nav-sections-item-content{"aria-hidden" => "false", "data-role" => "content", :id => "store.menu", :role => "tabpanel"}
+        %nav.navigation{"data-action" => "navigation"}
+          %ul.nav-menu-list
+            - spree_navigation_data.each do |root|
+              %li.level0.nav-0.level-top.nav--with-submenu
+                %a.level-top(href="#{root[:url]}")
+                  %span
+                    = root[:title]
+                %button.submenu-sticky-header
+                  = root[:title]
+                .level0.submenu.submenu--with-banner
+                  .level0.submenu-content
+                    .column
+                      .column__title
+                        %a.column__link.column__link_title(href="#{root[:url]}")
+                          = root[:title]
+                      %ul.column__links-list
+                        - root[:items].each do |item|
+                          %li.column__links-list-item
+                            %a.column__link(href="#{item[:url]}")
+                              = item[:title]

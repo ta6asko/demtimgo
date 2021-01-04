@@ -1,0 +1,77 @@
+.breadcrumbs {
+  max-width: 1170px;
+  width: 100%;
+  margin-left: auto;
+  margin-right: auto;
+  display: flex;
+  justify-content: center; }
+  @media (max-width: 1169px) {
+    .breadcrumbs {
+      padding-left: 20px;
+      padding-right: 20px; } }
+  @media (max-width: 1023px) {
+    .breadcrumbs {
+      padding-left: 15px;
+      padding-right: 15px; } }
+  @media (max-width: 1023px) {
+    .breadcrumbs {
+      padding-left: 9px; } }
+  @media (max-width: 767px) {
+    .breadcrumbs {
+      display: none; } }
+  .breadcrumbs .items {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    display: flex; }
+    .breadcrumbs .items .item {
+      display: flex;
+      align-items: center;
+      font-size: 18px; }
+      .breadcrumbs .items .item:before {
+        content: "";
+        font-family: 'icomoon';
+        color: #28463A;
+        speak: none;
+        font-style: normal;
+        font-weight: normal;
+        font-variant: normal;
+        text-transform: none;
+        line-height: 1;
+        display: flex;
+        font-size: 16px;
+        padding-right: 7px;
+        padding-left: 7px;
+        color: #b1b1b1; }
+      .breadcrumbs .items .item a {
+        color: #b1b1b1; }
+        .breadcrumbs .items .item a:hover {
+          color: #48645A; }
+      .breadcrumbs .items .item strong {
+        margin-right: 10px; }
+  .breadcrumbs .item.home {
+    height: 0; }
+    .breadcrumbs .item.home:before {
+      display: none; }
+    .breadcrumbs .item.home a {
+      height: 12px;
+      font-size: 0;
+      text-decoration: none;
+      color: #b1b1b1; }
+      .breadcrumbs .item.home a:hover:before {
+        color: #48645A; }
+      .breadcrumbs .item.home a:before {
+        content: "";
+        font-family: 'icomoon';
+        color: #28463A;
+        speak: none;
+        font-style: normal;
+        font-weight: normal;
+        font-variant: normal;
+        text-transform: none;
+        line-height: 1;
+        display: flex;
+        font-size: 25px;
+        padding-right: 7px;
+        color: #b1b1b1;
+        padding-top: 2px; }

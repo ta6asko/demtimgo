@@ -1,0 +1,78 @@
+/**
+ * Use id selector as there is no other available selector that we can use
+ * Styling for payment methods section in checkout page
+ */
+#adyen_cc,
+#paypal_express,
+#afterpaypayovertime {
+  // as we change the position of label::before, so original position of input needs to be
+  // changed to make sure when user click on radio button, then event bind to input can be triggered
+  margin: 18px 0;
+
+  & + label {
+    max-width: 368px;
+    display: flex;
+    align-items: center;
+
+    & .payment-icon {
+      display: none;
+    }
+
+    & .action-help {
+      display: none;
+    }
+
+    &::before {
+      top: 18px;
+    }
+  }
+}
+
+#adyen_cc {
+  width: 100%;
+  max-width: 368px; // increase width to make sure the click event bind to input can be triggered
+  margin: 0;
+  height: 55px;
+}
+
+#adyen_cc + label::after {
+  $background-url--mastercard: url('../images/payment-methods/payment-mastercard.svg') no-repeat;
+  $background-url--visa: url('../images/payment-methods/payment-visa.svg') no-repeat;
+  $background-url--american-express: url('../images/payment-methods/payment-american-express.svg') no-repeat;
+
+  @include pseudo-icon(200px, 50px);
+  background: $background-url--mastercard, 75px $background-url--visa, 150px $background-url--american-express;
+  background-size: 50px 50px;
+  margin-left: 35px;
+
+  @media (max-width: $breakpoint-large - 1px) {
+    background: 15px $background-url--mastercard, 80px $background-url--visa, 145px $background-url--american-express;
+    background-size: 50px 50px;
+    margin-left: 0;
+    width: 195px;
+  }
+}
+
+#paypal_express + label::after {
+  @include pseudo-icon(50px, 50px);
+  background: url('../images/payment-methods/payment-paypal.svg') no-repeat;
+  margin-left: 80px;
+
+  @media (max-width: $breakpoint-large - 1px) {
+    margin-left: 60px;
+  }
+}
+
+#afterpaypayovertime + label::after {
+  @include pseudo-icon(70px, 50px);
+  background: url('../images/payment-methods/payment-afterpay.svg') no-repeat;
+  margin-left: 55px;
+
+  @media (max-width: $breakpoint-large - 1px) {
+    margin-left: 45px;
+  }
+}
+
+#paypal-express-in-context-button {
+  font-size: 14px;
+}

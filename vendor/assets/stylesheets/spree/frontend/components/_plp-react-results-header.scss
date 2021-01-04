@@ -1,0 +1,187 @@
+/**
+ * PLP products header, including total number count and sort by filter
+ */
+.react-plp-app__results-header {
+  $sort-filter-width-desktop: 280px;
+  $sort-filter-width-small: 185px;
+  $sort-filter-width-mobile: 165px;
+
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  padding: 0 0 20px;
+
+  @media (max-width: $breakpoint-large - 1px) {
+    justify-content: space-between;
+  }
+
+  .react-plp-app__mobile-filters-toggle {
+    display: none;
+    background-color: palette(secondary, light);
+    font-weight: normal;
+    letter-spacing: 0;
+    text-transform: unset;
+    font-size: 18px;
+    margin-left: 13px;
+    height: 60px;
+    max-width: 280px;
+    text-align: center;
+    flex-basis: 28%;
+
+    @media (max-width: $breakpoint-large - 1px) {
+      display: block;
+    }
+
+    @media (max-width: $breakpoint-tablet - 1px) {
+      height: 50px;
+      font-size: 16px;
+    }
+
+    @media (max-width: $breakpoint-small - 1px) {
+      font-size: 14px;
+    }
+
+    @media (max-width: $breakpoint-mobile - 1px) {
+      flex-basis: 20%;
+      margin-left: 10px;
+    }
+  }
+
+  .react-plp-app__result-count-sort {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+  }
+
+  .react-plp-app__result-count {
+    font-size: 18px;
+    margin-top: 5px;
+    margin-right: 20px;
+
+    @media (max-width: $breakpoint-tablet - 1px) {
+      font-size: 16px;
+    }
+
+    @media (max-width: $breakpoint-small - 1px) {
+      font-size: 14px;
+    }
+
+    @media (max-width: $breakpoint-mobile - 1px) {
+      margin-right: 5px;
+      margin-left: 5px;
+    }
+  }
+
+  .react-plp-app__sorting-filters__control,
+  .react-plp-app__sorting-filters__menu {
+    @include text(body);
+    border-radius: 0;
+    width: $sort-filter-width-desktop;
+    font-size: 18px;
+    letter-spacing: 0.05em;
+
+    @media (max-width: $breakpoint-tablet - 1px) {
+      width: $sort-filter-width-small;
+      font-size: 16px;
+    }
+
+    @media (max-width: $breakpoint-small - 1px) {
+      width: $sort-filter-width-mobile;
+      font-size: 14px;
+    }
+  }
+
+  .react-plp-app__sorting-filters__control {
+    height: 60px;
+    border: 0;
+    background-color: palette(secondary, light);
+    color: palette(contrast, light);
+    cursor: pointer;
+    box-shadow: unset;
+
+    @media (max-width: $breakpoint-tablet - 1px) {
+      height: 50px;
+    }
+  }
+
+  .react-plp-app__sorting-filters__placeholder,
+  .react-plp-app__sorting-filters__single-value {
+    margin-left: 15px;
+
+    @media (max-width: $breakpoint-tablet - 1px) {
+      margin-left: 5px;
+    }
+  }
+
+  .react-plp-app__sorting-filters__placeholder,
+  .react-plp-app__sorting-filters__single-value,
+  .react-plp-app__sorting-filters__dropdown-indicator,
+  .react-plp-app__sorting-filters__dropdown-indicator:hover {
+    color: palette(contrast, light);
+  }
+
+  .react-plp-app__sorting-filters__indicator-separator {
+    display: none;
+  }
+
+  .react-plp-app__sorting-filters__menu {
+    margin-top: 0;
+    background-color: palette(secondary, tab);
+    box-shadow: none;
+    z-index: 2;
+  }
+
+  .react-plp-app__sorting-filters__menu-list {
+    padding-top: 0;
+    padding-bottom: 0;
+  }
+
+  .react-plp-app__sorting-filters__option {
+    color: palette(secondary);
+    background-color: palette(secondary, plp-filter-background);
+    padding: 20px 22px;
+    cursor: pointer;
+
+    @media (max-width: $breakpoint-tablet - 1px) {
+      padding: 15px 10px;
+    }
+
+    &:hover {
+      color: palette(contrast, light);
+      background-color: palette(secondary, light);
+    }
+  }
+
+  .react-plp-app__sorting-filters__option ~ .react-plp-app__sorting-filters__option {
+    border-top: 1px solid palette(secondary, border);
+  }
+
+  .react-plp-app__sorting-filters__option--is-selected {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    &::after {
+      content: '';
+      width: 17px;
+      height: 20px;
+      background-image: url("../images/icons/icon-tick.svg");
+      background-repeat: no-repeat;
+
+      @media (max-width: $breakpoint-tablet - 1px) {
+        width: 14px;
+        height: 18px;
+      }
+
+      @media (max-width: $breakpoint-small - 1px) {
+        width: 12px;
+        height: 15px;
+      }
+    }
+
+    &:hover::after {
+      background-image: url("../images/icons/icon-tick-white.svg");
+      color: palette(contrast, light);
+    }
+  }
+}

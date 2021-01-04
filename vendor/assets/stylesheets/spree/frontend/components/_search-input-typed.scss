@@ -1,0 +1,20 @@
+/**
+*  @category BBNT
+*  @category BBNT_Search
+*  @author Vidura Nishantha <vidura@tagpartners.co>
+*  http://www.viduranishantha.com
+
+*  Styling for when the user typed something in the search text box 
+*/
+
+.search-overlay-active {/* this line added properly overide the style*/
+	.input-typed {
+		.form.minisearch {
+			.action.search {
+				@media (max-width: $breakpoint-tablet - 1px) {
+					display: none; /* hiding the search icon for mobile once type in the search box*/
+				}
+			}
+		}
+	}
+}

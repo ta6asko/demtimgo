@@ -1,0 +1,31 @@
+/**
+ * Header logo styles
+ */
+.header-logo-container {
+  background-color: palette(contrast, light);
+  display: flex;
+
+  @media (max-width: $breakpoint-large - 1px) {
+    padding-left: 5px;
+    padding-bottom: 0;
+    max-height: 60px;
+    display: flex;
+    align-items: center;
+  }
+
+  @media (max-width: $breakpoint-tablet - 1px) {
+    position: fixed;
+    left: 0;
+    top: 0;
+    right: 0;
+    z-index: 100;
+    padding-left: 15px;
+    padding-top: 7px;
+    min-height: 73px;
+  }
+
+  .logo {
+    @include logo();
+  }
+}
+

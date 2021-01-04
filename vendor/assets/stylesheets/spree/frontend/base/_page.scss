@@ -1,0 +1,20 @@
+/**
+ * Page related common styles for all the pages
+ */
+.page-main {
+  @include contentWrapper();
+  padding-bottom: 40px;
+
+  @media (min-width: $breakpoint-large) {
+    padding-top: 208px;
+  }
+
+  @media (max-width: $breakpoint-large - 1px) {
+    padding-top: 208px;
+  }
+
+  @media (max-width: $breakpoint-tablet - 1px) {
+    padding-top: 60px;
+  }
+}
+

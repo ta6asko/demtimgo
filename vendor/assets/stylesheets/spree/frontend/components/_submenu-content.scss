@@ -1,0 +1,175 @@
+/**
+ * Styling for submenu static block used by nav menu
+ */
+.submenu-content {
+  $font-size--megamenu-subheading: $font-size-title-5;
+  $font-size--megamenu-link: 15px;
+  $letter-spacing--nav-title: 0.07em;
+  $letter-spacing--nav-link: 0.015em;
+  $height--nav-menu-link: 63px;
+
+  @include contentWrapper();
+  display: flex;
+
+  @media (max-width: $page-width-content - 1px) {
+    padding: 0 27px 0 15px;
+  }
+
+  @media (min-width: $breakpoint-large) {
+    padding-top: 15px;
+    padding-bottom: 30px;
+  }
+
+  @media (max-width: $breakpoint-large - 1px) {
+    flex-direction: column;
+    padding: 0;
+  }
+
+  .column__wrapper {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .row {
+    display: flex;
+    flex: 1;
+  }
+
+  .column {
+    @media (min-width: $breakpoint-large) {
+      min-width: 253px;
+      padding: 15px 0 20px;
+    }
+
+    .column__title {
+      padding: 15px 0 5px 23px;
+      letter-spacing: $letter-spacing--nav-title;
+      text-transform: uppercase;
+      color: palette(primary);
+      font-size: $font-size--megamenu-subheading;
+      font-weight: 700;
+
+      @media (min-width: $page-width-content) {
+        padding: 15px 23px 5px 5px;
+      }
+
+      @media (max-width: $breakpoint-large - 1px) {
+        padding: 48px 0 20px 45px;
+        border-top: 1px solid palette(secondary, mobile-menu-item-background);
+      }
+    }
+
+    .column__links-list + .column__title {
+      padding-top: 45px;
+    }
+
+    .column__links-list {
+      @include resetUL();
+      display: block;
+      position: relative;
+      letter-spacing: 0.05em;
+    }
+
+    .column__links-list-item {
+      display: block;
+      text-transform: none;
+      font-weight: normal;
+      padding-top: 10px;
+      padding-left: 23px;
+
+      @media (min-width: $page-width-content) {
+        padding-left: 5px;
+        padding-right: 23px;
+      }
+
+      @media (max-width: $breakpoint-large - 1px) {
+        border-top: 1px solid palette(secondary, mobile-menu-item-background);
+        padding: 0;
+        border-bottom: 0;
+      }
+    }
+
+    .column__link {
+      font-size: $font-size--megamenu-link;
+      letter-spacing: $letter-spacing--nav-link;
+      line-height: inherit;
+      color: palette(secondary, dark);
+      display: block;
+      margin-bottom: 3px;
+
+      @media (max-width: $breakpoint-large - 1px) {
+        font-size: $font-size-title-5;
+        padding: 22px 15px 19px 45px;
+
+        &.column__link_title {
+          padding: 0;
+        }
+      }
+
+      @media (max-width: $breakpoint-tablet - 1px) {
+        font-size: $font-size-regular;
+      }
+
+      &:hover {
+        color: palette(secondary, light);
+        text-decoration: underline;
+      }
+    }
+
+    .column__link_title {
+      font-size: $font-size--megamenu-subheading;
+      letter-spacing: $letter-spacing--nav-title;
+      color: palette(primary);
+      margin-bottom: 0;
+    }
+  }
+
+  .column ~ .column {
+    @media (min-width: $breakpoint-large) {
+      margin-left: 20px;
+    }
+  }
+
+  .banners {
+    margin-left: 20px;
+    display: flex;
+    flex: 1;
+    justify-content: flex-end;
+    padding: 30px 0;
+
+    @media (max-width: $page-width-content - 1px) {
+      margin-left: 40px;
+    }
+
+    @media (max-width: $breakpoint-large - 1px) {
+      display: none;
+    }
+  }
+
+  .banner,
+  .banner-large {
+    display: flex;
+
+    .image {
+      height: 350px;
+      width: 100%;
+    }
+  }
+
+  .banner-large {
+    margin-left: 20px;
+
+    @media (max-width: $page-width-content - 1px) {
+      display: none;
+    }
+  }
+
+  .banner ~ .banner {
+    margin-left: 20px;
+  }
+
+  .image-link:hover {
+    opacity: 0.8;
+    transition: all 0.3s ease;;
+  }
+}

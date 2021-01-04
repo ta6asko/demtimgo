@@ -1,0 +1,31 @@
+.columns
+  .column.main
+    .react-plp-app
+      .react-plp-app__filters
+      .react-plp-app__results
+        .react-plp-app__results-header
+        .list-loader.react-plp-app-product-list-loader.react-plp-app__product-list-loader
+          %ul.list-container.react-plp-app-product-list.list-loader__list.react-plp-app-product-list-loader__list
+            - @products.each do |product|
+              %li.list-container__list-item.react-plp-app-product-list__list-item
+                %article.product.react-plp-app-product
+                  .product__images.product__images--mulitple.react-plp-app-product__images.react-plp-app-product__images--mulitple
+                    %a.product__images-link.react-plp-app-product__images-link(href="#{spree.product_path(product, taxon_id: @taxon.try(:id))}")
+                      %figure.o-imagewrap.square-wrapper.__imagewrap.o-image__img-portrait.has-loaded{"data-loaded" => "true"}
+                        .o-image
+                          = plp_and_carousel_image(product)
+                          / %img.__img.o-image__img.img-responsive.img-clip{:alt => "KALBARRI Mug", :src => "https://mcprod.bedbathntable.com.au/media/catalog/product/2/1/21019501-P.jpg", :srcset => "https://mcprod.bedbathntable.com.au/media/catalog/product/2/1/21019501-P.jpg?auto=webp&width=540 1200w, https://mcprod.bedbathntable.com.au/media/catalog/product/2/1/21019501-P.jpg?auto=webp&width=400 1920w"}
+                  .product__description.react-plp-app-product__description
+                    .product__header.react-plp-app-product__header
+                      %a.product__link.react-plp-app-product__link{:href => "/ch-kalbarri-mug-taupe-sage-21019501"}
+                        .product__title.react-plp-app-product__title
+                          = product.name
+                      .product__subtitle.react-plp-app-product__subtitle
+                        = product.name
+                    .product__prices.react-plp-app-product__prices
+                      %span.product__prices-label
+                      .price-wrapper
+                        %p.price.price--regular
+                          %span.price__label Regular
+                          %span.price__value
+                            = display_price(product)

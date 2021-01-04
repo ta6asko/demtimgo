@@ -1,0 +1,185 @@
+/**
+ * PLP product card styling
+ */
+.react-plp-app-product {
+  $font-size--title: $font-size-title-5;
+  $font-size--regular: $font-size-regular;
+  $font-size--small: $font-size-small;
+
+  .react-plp-app-product__sale-ribbon {
+    position: absolute;
+    top: 0;
+    right: 0;
+    left: 0;
+    padding: 1rem;
+    background: rgba(0, 0, 0, 0.5);
+    color: palette(accent, bright);
+    z-index: 1;
+  }
+
+  .react-plp-app-product__action-icon {
+    position: absolute;
+    visibility: hidden;
+  }
+
+  .react-plp-app-product__images {
+    position: relative;
+  }
+
+  .react-plp-app-product__dinkus {
+    position: absolute;
+    z-index: 1;
+    pointer-events: none;
+    height: 100%;
+    max-height: 25px;
+
+    @media (max-width: $breakpoint-large - 1px) {
+      max-height: 30px;
+    }
+  }
+
+  .react-plp-app-product__dinkus--dinkus_top_left {
+    left: 0;
+    top: 0;
+  }
+
+  .react-plp-app-product__dinkus--dinkus_top_right {
+    top: 0;
+    right: 0;
+  }
+
+  .react-plp-app-product__dinkus--dinkus_bot_left {
+    bottom: 0;
+    left: 0;
+  }
+
+  .react-plp-app-product__dinkus--dinkus_bot_right {
+    right: 0;
+    bottom: 0;
+  }
+
+  .react-plp-app-product__link {
+    color: palette(contrast);
+
+    &:hover {
+      color: palette(primary);
+    }
+  }
+
+  .react-plp-app-product__title {
+    line-height: 24px;
+    text-align: center;
+    font-size: 15px;
+  }
+
+  .react-plp-app-product__subtitle {
+    font-size: 10px;
+    color: palette(secondary);
+    line-height: 24px;
+    text-transform: uppercase;
+    text-align:center;
+  }
+
+  .react-plp-app-product__description {
+    margin-top: 20px;
+    padding: 0 5px 5px 8px;
+  }
+
+  .react-plp-app-product__packaging-label {
+    font-style: italic;
+    font-size: 11px;
+    color: palette(secondary);
+    line-height: 20px;
+    margin-top: 1px;
+    text-align: center;
+    padding-bottom: 4px;
+  }
+
+  .react-plp-app-product__prices {
+    display: flex;
+    flex-wrap: wrap;
+    margin-top: 1px;
+    justify-content: center;
+
+    .product__prices-label {
+      font-size: $font-size--small;
+      margin: 0 5px 6px;
+      line-height: 18px;
+    }
+
+    .product__prices-label:empty {
+      display:none;
+    }
+
+    .price-wrapper {
+      display: flex;
+      flex-direction: row-reverse;
+      justify-content: flex-end;
+      margin-bottom:6px;
+    }
+
+    .price--sale,
+    .price--was,
+    .price--regular {
+      font-size: $font-size--small;
+      line-height: 18px;
+      padding-bottom: 0;
+    }
+
+    .price--sale,
+    .price--regular {
+      .price__label {
+        display: none;
+      }
+    }
+
+    .price--sale {
+      .price__value {
+        color: palette(accent, bright);
+      }
+    }
+
+    .price--was {
+      margin-left: 5px;
+
+      .price__label {
+        text-transform: lowercase;
+      }
+    }
+  }
+
+  .react-plp-app-product__rewards-prices {
+    margin-top: 2px;
+
+    .price--rewards {
+      color: palette(primary);
+      padding-bottom: 0;
+      line-height: 14px;
+      font-size: $font-size--small;
+      text-align: center;
+
+      .price__label {
+        text-transform: uppercase;
+        letter-spacing: 1.5px;
+      }
+    }
+  }
+
+  .react-plp-app-product__promo-notes {
+    line-height: 14px;
+    font-size: $font-size--small;
+    margin-top: 3px;
+    text-align:center;
+    color: palette(accent, bright);
+  }
+
+  .react-plp-app-product__stock-status {
+    font-size: $font-size--small;
+    line-height: 18px;
+    margin-top: 1px;
+    color: palette(accent);
+    text-align: center;
+    line-height: 20px;
+    padding-top: 2px;
+  }
+}

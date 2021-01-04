@@ -1,0 +1,90 @@
+/**
+//  * @category BBNT
+//  * @category BBNT_Theme
+//  * @author Vidura Nishantha <vidura@tagpartners.co>
+//  * http://www.viduranishantha.com
+
+//  * Header mobile menu bottom links style
+ */
+ .nav-sections {
+    .level0.level-top.mobile-menu-bottom-links{
+        padding:25px 0;
+        overflow: visible;
+        min-height: unset;
+        transition: transform .38s ease-in-out,-webkit-transform .38s ease-in-out;
+        
+        @media (min-width: $breakpoint-large) {
+            display: none;
+        } 
+        
+        @media (max-width: $breakpoint-large - 1px) {
+            ul{
+                padding: 0;
+    
+                li{
+                    position: relative;
+                        
+                    &::before{
+                        position: absolute;
+                        left: 28px;
+                        width: 30px;
+                        height: 30px;
+                        top: 13px;
+                        font-size:20px;                      
+                    }
+    
+                    &.track-order::before {
+                        @include icon(delivery);
+                        color: palette(secondary, light-text);
+                        font-size: 21px;
+                        top: 12px;
+                    }
+
+                    &.store-locator::before {
+                        @include icon(location-marker);
+                        color: palette(secondary, light-text);
+                    }
+    
+                    &.delivery-returns::before {
+                        @include icon(returns);
+                        color: palette(secondary, light-text);
+                    }
+    
+                    &.contact::before {
+                        @include icon(phone);
+                        color: palette(secondary, light-text);
+                    }
+    
+                    // adding this as a svg other than icomoon to avoid confilict with parral tickts
+                    &.faq::before {
+                        content: '';
+                        margin-left: 2px;
+                        width: 16px;
+                        height: 16px;
+                        top: 15px;
+                        background-image: url("../images/icons/faq.svg");
+                        background-size: contain;
+                    }
+    
+                    a {
+                        padding: 12px 0 12px 55px;
+                        width: 100%;
+                        display: block;
+                        text-transform: none;
+                        color: palette(secondary, light-text);
+                        font-size: 14px;
+                    }
+                }
+            }   
+        }     
+    }
+ }
+
+// animation for the bottom links when submenu active
+.submenu-active {
+    .mobile-menu-bottom-links{
+        transform: translateX(-100%);
+    }
+}
+
+ 

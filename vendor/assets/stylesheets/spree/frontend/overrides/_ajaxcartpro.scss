@@ -1,0 +1,474 @@
+/**
+ * This is for overwriting styling of Ajax Cart Pro module
+ */
+.aw-acp-popup-container {
+  $thumbnail_width: 150px;
+  $thumbnail_height: 115px;
+
+  .aw-acp-popup {
+    max-width: 410px;
+  }
+
+  .aw-acp-popup__loader-bar {
+    background: palette(contrast, light);
+    background-image: url('../images/loader-1.gif');
+    background-repeat: no-repeat;
+    background-position: center;
+    box-shadow: none;
+    height: 75%;
+
+    &::after {
+      background-image: none;
+    }
+  }
+
+  .aw-acp-popup__message {
+    margin: 0;
+  }
+
+  .aw-acp-popup__message--bad {
+    color: palette(accent, bright);
+    background-color: transparent;
+  }
+
+  .aw-acp-popup__close-icon {
+    display: block !important; // overwrite inline style added to force close icon display
+    position: absolute;
+    right: 10px;
+    top: 10px;
+
+    &:hover {
+      text-decoration: none;
+    }
+
+    &::before {
+      @include icon(close);
+      font-size: 22px;
+    }
+
+    &:hover::before {
+      text-decoration: none;
+    }
+  }
+
+  .aw-acp-popup--result {
+    background-color: palette(secondary, tab);
+    margin: 5px;
+  }
+
+  .aw-acp-popup__summary-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    border-bottom: 1px solid palette(secondary, border);
+    margin: 0 10px 15px;
+    padding: 20px 10px 15px;
+  }
+
+  .aw-acp-popup__summary-title {
+    @include text(title-1);
+    text-transform: none;
+  }
+
+  .aw-acp-popup__summary-message {
+    font-size: 16px;
+    font-weight: lighter;
+  }
+
+  .aw-acp-popup__columns {
+    padding: 0 20px;
+  }
+
+  .aw-acp-popup__column:nth-child(2) {
+    flex: 0 0 auto;
+  }
+
+  .aw-acp-popup__column.aw-acp-popup__column--media,
+  .aw-acp-popup__image-wrapper {
+    width: $thumbnail_width;
+    min-width: $thumbnail_width;
+  }
+
+  .photo.image,
+  .product-image-photo {
+    // width: $thumbnail_width;
+    // height: $thumbnail_height;
+    width: 130px;
+    height: 130px;
+    object-fit: cover!important;
+  }
+
+  .aw-acp-popup__column.aw-acp-popup__result {
+    align-self: baseline;
+    text-align: left;
+    margin-left: 10px;
+  }
+
+  .aw-acp-popup__result-cart-description,
+  .aw-acp-popup__result-price,
+  .aw-acp-popup__result-qty,
+  .aw-acp-popup__result-item-code {
+    max-width: 180px;
+    font-size: $font-size-small;
+    margin: 0;
+    padding: 0;
+  }
+
+  .product-item-price {
+    font-size: $font-size-small;
+    display: flex;
+
+    .old-price {
+      text-decoration: line-through;
+    }
+
+    .price-box {
+      font-size: $font-size-small;
+      flex: 0 0 auto;
+      max-width: 180px;
+    }
+  }
+
+  .special-price {
+    color: palette(accent, bright);
+
+    .price-label {
+      display: none;
+    }
+  }
+
+  .rewards-price {
+    color: palette(primary);
+  }
+
+  .price-label,
+  .price-wrapper {
+    font-size: $font-size-small;
+  }
+
+  .minimal-price {
+    padding: 0;
+  }
+
+  .aw-acp-popup__related {
+    padding: 25px 15px 0;
+
+    .block-title {
+      font-size: 24px;
+      line-height: 1.4em;
+      text-align: center;
+      color: palette(primary);
+      padding: 0 20px 20px;
+      border-bottom: 1px solid palette(secondary, border);
+    }
+
+    .product-items {
+      flex-direction: column;
+      justify-content: center;
+      padding: 0;
+      margin: 0;
+    }
+
+    .item.product.product-item {
+      width: 100% !important; // use !important to overwrite what ajax cart pro module added in their CSS by using !important
+      flex: 1 1 auto;
+      border-bottom: 1px solid palette(secondary, border);
+      padding: 10px;
+      transition: $transition;
+      flex-direction: column;
+    }
+
+    .product-item-info {
+      flex-direction: row;
+    }
+
+    .product.photo.product-item-photo {
+      width: $thumbnail_width;
+      height: $thumbnail_height;
+      min-width: $thumbnail_width;
+    }
+
+    .product.details.product-item-details {
+      padding: 0 0 0 10px;
+      align-items: flex-start;
+    }
+
+    .product-item-cart-description {
+      font-size: $font-size-small;
+      flex: 0 0 auto;
+      max-width: 180px;
+      text-align: left;
+    }
+
+    .qty-with-controls {
+      margin: 6px 0;
+      justify-content: start;
+    }
+
+    .qty-control {
+      max-width: 25px;
+      max-height: 25px;
+    }
+
+    .qty {
+      width: 35px;
+      height: 25px;
+      padding: 0;
+    }
+
+    .qty-control--less {
+      font-size: 18px;
+    }
+
+    .qty-control--more {
+      font-size: $font-size-small;
+    }
+
+    .actions-primary {
+      margin-top: 4px;
+    }
+
+    .action-primary,
+    .stock.unavailable {
+      font-size: $font-size-small;
+    }
+
+    .action.tocart.primary {
+      width: 108px;
+      font-size: $font-size-small;
+      font-weight: normal;
+      padding: 8px;
+
+      &.disabled {
+        background-color: palette(secondary);
+      }
+    }
+
+    .add-to-cart-message {
+      font-size: 14px;
+      padding-top: 10px;
+      display: none;
+    }
+
+    .add-to-cart-message--success {
+      color: palette(primary);
+    }
+
+    .add-to-cart-message--error {
+      color: palette(accent, bright);
+    }
+  }
+
+  .product-free-shipping-indicator {
+    display: none;
+    padding: 0 15px;
+
+    .progress-label {
+      font-size: 16px;
+      color: palette(primary);
+      margin: 0;
+      max-width: 100%;
+      padding: 20px 0;
+      border-bottom: 1px solid palette(secondary, border);
+    }
+
+    .meter-container {
+      display: none;
+    }
+  }
+
+  .aw-acp-popup__actions {
+    justify-content: center;
+    padding: 20px 0 5px;
+  }
+
+  .aw-acp-popup__close-wrapper.aw-acp-popup__column,
+  .aw-acp-popup__submit-wrapper.aw-acp-popup__column {
+    width: 170px;
+  }
+
+  .aw-acp-popup__submit,
+  .aw-acp-popup__close {
+    font-size: 12px !important; // use !important as original styling has it, so have to overwrite in same way
+    height: 40px;
+    font-weight: normal;
+  }
+
+  // mobile related styling starts here
+  @media (max-width: $breakpoint-tablet - 1px) {
+    overflow: auto !important; // use !important to overwrite the inline styling added
+    height: 100% !important; // use !important to overwrite the inline styling added
+
+    &.aw-acp-popup-container--zoom-in.mfp-ready {
+      z-index: 2;
+
+      .aw-acp-popup.aw-acp-popup-with-anim {
+        transform: none;
+      }
+    }
+
+    .mfp-container.mfp-s-ready {
+      position: static;
+      padding: 0;
+      background: palette(contrast, light);
+
+      &::before {
+        display: none;
+      }
+
+      .mfp-content {
+        position: static;
+      }
+    }
+
+    .aw-acp-popup {
+      position: fixed;
+      width: 100%;
+      max-width: 100%;
+      top: 65px;
+      bottom: 0;
+      z-index: 2;
+      margin: 0;
+      overflow-y: auto;
+      padding-bottom: 70px;
+    }
+
+    .aw-acp-popup__mobile-header {
+      display: none;
+    }
+
+    .aw-acp-popup__product-info {
+      display: none;
+    }
+
+    .aw-acp-popup--result {
+      .aw-acp-popup__message {
+        flex: 0 0 auto;
+      }
+
+      .aw-acp-popup__message--info {
+        display: none;
+      }
+
+      .aw-acp-popup__columns {
+        flex: 0 0 auto;
+        margin: auto;
+        padding-bottom: 20px;
+      }
+
+      .aw-acp-popup__column--media {
+        display: none;
+      }
+    }
+    
+    .aw-acp-popup__loader {
+      width: 100%;
+      padding: 0;
+    }
+
+    .aw-acp-popup__loader-bar {
+      position: absolute;
+      left: 0;
+      top: 0;
+      max-width: 100%;
+    }
+
+    .aw-acp-popup__close-icon {
+      top: 4px;
+      right: 4px;
+      z-index: 1;
+    }
+
+    .aw-acp-popup__main {
+      padding: 0 10px;
+      margin: 0;
+
+      .aw-acp-popup__columns {
+        margin: 0;
+        padding: 0 0 15px;
+        display: flex;
+        flex: 1 1 auto;
+      }
+    }
+
+    .aw-acp-popup__summary-header {
+      flex-direction: column;
+      margin: 0 0 15px;
+      padding: 15px 0;
+    }
+
+    .aw-acp-popup__summary-title {
+      font-size: 24px;
+      margin-bottom: 15px;
+    }
+
+    .aw-acp-popup__column.aw-acp-popup__column--media {
+      display: block;
+      margin: 0;
+    }
+
+    .aw-acp-popup__image-wrapper {
+      padding-bottom: 0;
+    }
+
+    .aw-acp-popup__column.aw-acp-popup__result {
+      margin: 0;
+      padding: 0 5px;
+      flex: 1 1 auto;
+    }
+
+    .aw-acp-popup__related {
+      padding: 15px 0 0;
+
+      .block-title {
+        font-size: 18px;
+        padding-bottom: 15px;
+      }
+    }
+
+    .product-free-shipping-indicator {
+      padding: 0;
+
+      .progress-label {
+        padding: 15px 0;
+      }
+    }
+
+    .aw-acp-popup__actions {
+      display: flex;
+      justify-content: space-between;
+      padding: 15px;
+      align-items: center;
+      position: fixed;
+      left: 0;
+      bottom: 0;
+      right: 0;
+      background-color: palette(contrast, light);
+      min-height: 70px;
+    }
+
+    .aw-acp-popup__close-wrapper.aw-acp-popup__column,
+    .aw-acp-popup__submit-wrapper.aw-acp-popup__column {
+      display: block;
+      position: relative;
+      margin-bottom: 0;
+      flex-basis: 50%;
+      max-width: 50%;
+      text-align: center;
+    }
+
+    .aw-acp-popup__close,
+    .aw-acp-popup__submit {
+      width: 100%;
+      max-width: 170px;
+
+      @media (max-width: $breakpoint-small-mobile - 1px) {
+        font-size: 10px !important; // use !important as our overwrite styling has it, so have to overwrite in same way
+      }
+    }
+
+    .aw-acp-popup__submit {
+      margin-left: 5px;
+    }
+  }
+}

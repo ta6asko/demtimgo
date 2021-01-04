@@ -1,0 +1,38 @@
+/**
+//  * @category BBNT
+//  * @category BBNT_Theme
+//  * @author Vidura Nishantha <vidura@tagpartners.co>
+//  * http://www.viduranishantha.com
+
+ * Header Mobile menu footer section styling
+ */
+
+ .nav-sections {
+  .level0.level-top.mobile-menu-footer-container {  
+    position: relative;
+    transition: transform .38s ease-in-out,-webkit-transform .38s ease-in-out;
+  
+    @media (min-width: $breakpoint-large) {
+      display: none;
+    }
+  
+    .mobile-menu-footer {  
+      color: palette(secondary, fade-text);
+      display: flex;
+      padding: 26px;
+      align-items: center;
+      justify-content: center;
+      width: 100%;
+      bottom: 0;
+      position: absolute;
+      text-transform: none;
+      font-size:12px;
+    }
+  } 
+ } 
+
+ .submenu-active {
+  .mobile-menu-footer-container{
+      transform: translateX(-100%);
+  }
+}
