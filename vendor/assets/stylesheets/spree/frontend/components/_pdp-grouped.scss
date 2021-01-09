@@ -1,0 +1,144 @@
+/**
+ * Styling for the grouped data table on the PDP
+ */
+.table.grouped {
+  border: 0;
+  table-layout: fixed; // this is to fix the text overflow to outside of td in IE 11
+
+  thead .col {
+    text-transform: uppercase;
+    font-size: 10px;
+    letter-spacing: 1.5px;
+
+    &.item {
+      text-align: left;
+      padding-left: 10px;
+
+      @media (max-width: $breakpoint-tablet - 1px) {
+        padding-left: 25px;
+      }
+    }
+
+    &.rewards {
+      color: palette(primary);
+      width: 70px;
+    }
+
+    &.price {
+      text-align: center;
+      padding-left: 10px;
+      width: 74px;
+
+      @media (max-width: $breakpoint-large - 1px) {
+        width: 55px;
+      }
+    }
+
+    &.qty {
+      text-align: right;
+      padding-right: 30px;
+      width: 132px;
+
+      @media (max-width: $breakpoint-large - 1px) {
+        padding-right: 42px;
+        width: 126px;
+      }
+
+      @media (max-width: $breakpoint-tablet - 1px) {
+        padding-right: 36px;
+        width: 118px;
+      }
+    }
+  }
+
+  th {
+    border: 0;
+  }
+
+  tr {
+    border-bottom: 1px solid palette(secondary, border);
+  }
+
+  td {
+    border: 0;
+    padding: 14px 10px 14px 0;
+
+    &.col.item {
+      display: flex;
+      flex-direction: column;
+      padding-left: 10px;
+      padding-top: 18px;
+
+      @media (max-width: $breakpoint-large - 1px) {
+        padding-top: 15px;
+        padding-right: 5px;
+      }
+
+      @media (max-width: $breakpoint-tablet - 1px) {
+        padding-left: 25px;
+      }
+    }
+
+    &.col.rewards {
+      color: palette(primary);
+      text-align: center;
+      font-size: 13px;
+      padding-right: 0;
+    }
+
+    &.col.price {
+      @media (max-width: $breakpoint-x-large - 1px) {
+        padding-right: 7px;
+      }
+
+      @media (max-width: $breakpoint-large - 1px) {
+        padding-right: 2px;
+      }
+    }
+
+    &.col.qty {
+      @media (max-width: $breakpoint-large - 1px) {
+        padding-right: 30px;
+      }
+
+      @media (max-width: $breakpoint-tablet - 1px) {
+        padding-right: 25px;
+      }
+    }
+  }
+
+  .product-item-list-desc {
+    font-size: 18px;
+
+    @media (max-width: $breakpoint-large - 1px) {
+      font-size: 14px;
+    }
+  }
+
+  .product-stock-status {
+    font-size: 10px;
+    color: palette(primary);
+  }
+
+  .price-box {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    font-size: 13px;
+    line-height: 13px;
+
+    .price-label {
+      display: none;
+    }
+
+    .special-price {
+      color: palette(accent, bright);
+    }
+
+    .old-price {
+      text-decoration: line-through;
+      font-size: 11px;
+      letter-spacing: -0.5px;
+    }
+  }
+}

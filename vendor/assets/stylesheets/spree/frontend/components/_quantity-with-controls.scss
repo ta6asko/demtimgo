@@ -1,0 +1,72 @@
+/**
+ * Styling for the component that has a quantity field between an add/remove button
+ */
+.qty-with-controls {
+  $qty-color: $color-white;
+  $qty-control-background-color: #C6C7C9;
+  $qty-background-color: #9C9DA1;
+
+  display: flex;
+  justify-content: flex-end;
+
+  .qty-control {
+    width: 100vw;
+    height: 100vh;
+    max-width: 30px; // Setting width to 30px doesn't actually seem to work..
+    max-height: 30px;
+    padding: 0;
+    background-color: $qty-control-background-color;
+    color: $qty-color;
+
+    @media (max-width: $breakpoint-large - 1px) {
+      max-width: 25px;
+      max-height: 25px;
+    }
+  }
+
+  .qty-control--less {
+    margin-right: 1px;
+  }
+
+  .qty-control--more {
+    margin-left: 1px;
+
+    @media (max-width: $breakpoint-large - 1px) {
+      font-size: 13px;
+    }
+  }
+
+  .qty-control--less {
+    margin-right: 1px;
+  }
+
+  .qty {
+    width: 38px;
+    height: 30px;
+    color: $qty-color;
+    background-color: $qty-background-color;
+    text-align: center;
+    border: 0;
+
+    @media (max-width: $breakpoint-large - 1px) {
+      width: 31px;
+      height: 25px;
+    }
+
+    // we add this to force width of input box to be 38px as it can be overwritten by other module with
+    // same selector in global level, e.g., Ajax Cart Pro module
+    .input-text.qty {
+      width: 38px;
+      text-align: center;
+      padding: 0;
+
+      @media (max-width: $breakpoint-large - 1px) {
+        width: 31px;
+      }
+    }
+  }
+
+  .qty-control--more {
+    margin-left: 1px;
+  }
+}

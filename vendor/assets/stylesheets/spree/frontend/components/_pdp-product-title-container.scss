@@ -1,0 +1,51 @@
+/**
+ * Style for PDP product title container
+ */
+.product-title-container {
+  .page-title-wrapper {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: baseline;
+    padding: 18px 0 15px 10px;
+
+    @media (max-width: $breakpoint-x-large - 1px) {
+      padding-top: 13px;
+    }
+
+    @media (max-width: $breakpoint-tablet - 1px) {
+      padding: 0 0 15px 0;
+    }
+
+    .page-title {
+      display: none;
+    }
+
+    .heading-one-title {
+      @include text(title-1);
+      margin: 0;
+      font-size: 30px;
+      padding: 8px 10px 0 0;
+    }
+
+    .label {
+      font-size: 22px;
+      padding-top: 8px;
+
+      @media (max-width: $breakpoint-large - 1px) {
+        font-size: 20px;
+      }
+    }
+
+    .product-notes {
+      font-size: 18px;
+      font-style: italic;
+      color: palette(secondary);
+      width: 100%;
+      padding-top: 8px;
+
+      @media (min-width: $breakpoint-tablet) and (max-width: $breakpoint-large - 1px) {
+        font-size: 14px;
+      }
+    }
+  }
+}

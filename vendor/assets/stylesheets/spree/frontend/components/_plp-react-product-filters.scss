@@ -1,0 +1,215 @@
+/**
+ * PLP filters styling
+ */
+.react-plp-app__filters {
+  $mobile-filters--header__text-font-size: $font-size-title-2;
+  $mobile-filters--header__close-button-font-size: $font-size-title-1;
+
+  @media (max-width: $breakpoint-large - 1px) {
+    padding: 30px 30px 0;
+    overflow-y: auto;
+    background-color: palette(contrast, light);
+
+    &.react-plp-app__filters--open {
+      display: block;
+    }
+
+    .react-plp-app-product-filters__header {
+      display: block;
+      font-size: $mobile-filters--header__text-font-size;
+    }
+
+    .react-plp-app-product-filters__accordion {
+      padding-bottom: 30px;
+    }
+  }
+
+  @media (max-width: $breakpoint-tablet - 1px) {
+    padding: 10px 30px 0;
+  }
+
+  .react-plp-app-product-filters__header-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .react-plp-app-product-filters__header-container__text {
+    text-transform: uppercase;
+  }
+
+  .react-plp-app-product-filters__header-container__close-button {
+    background-color: transparent;
+    width: auto;
+    padding-right: 0;
+
+    &::after {
+      @include icon(close);
+      font-size: $mobile-filters--header__close-button-font-size;
+    }
+  }
+
+  .react-plp-app-product-filters__accordion-panel__header {
+    position: relative;
+    border: 0;
+    width: 100%;
+    background: palette(contrast, light);
+    text-align: left;
+    font-size: 18px;
+    font-weight: normal;
+    text-transform: capitalize;
+    height: 60px;
+    color: $color-almost-black;
+    border-bottom: 1px solid $color-almost-black;
+    padding: 0;
+    letter-spacing: 0.02;   
+
+    &::after {
+      position: absolute;
+      top: 20px;
+      right: 0;
+      font-family: monospace;
+      font-size: 24px;
+      content: '+';
+    }  
+  }
+
+  .react-plp-app-product-filters__accordion__item--active  {
+    margin-bottom: 30px;
+
+    .react-plp-app-product-filters__accordion-panel__header:after{
+      content: '-';
+      font-size: 32px;
+      right: 0;
+    }
+
+    .react-plp-app-product-filters__accordion-panel__header{
+      margin-bottom: 15px;
+    }  
+
+    &:first-child{
+      margin-bottom:20px;
+    }
+  }
+
+  .react-plp-product-filter__aspect ~ .react-plp-product-filter__aspect {
+ 
+  }
+
+  .filter-control-container {
+    display: flex;
+    align-items: center;
+    background: $color-white;
+    height: 45px;
+
+    .label {
+      margin-bottom: 0;
+      display: flex;
+      align-items: center;
+      line-height: initial;
+    }
+
+    .filter-control__label {
+      margin-left: 5px;
+      font-size: 16px;
+      letter-spacing: 0.05em;
+
+      &:hover {
+        color: palette(primary);
+      }
+
+      .count-container{
+        padding-left: 5px;
+        font-size: 13px;
+        color: palette(secondary, input);
+      }
+    }
+
+    .filter-control__label-active {
+      font-weight: bold;
+    }
+  }
+
+  .filter-control-container--colour-swatch {
+    .filter-control__label--colour-swatch {
+      display: flex;
+      align-items: center;
+    }
+
+    .filter-control__label--colour-swatch-active {
+      font-weight: bold;
+    }
+
+    .filter-control__label--colour-icon {
+      width: 20px;
+      height: 20px;
+      border: 1px solid palette(secondary, border);
+      border-radius: 25px;
+      margin-left: 5px;
+      margin-right: 10px;
+    }
+  }
+
+  .filter-control-container,
+  .filter-control-container--colour-swatch {
+    .label::before {
+      top: 4px;
+    }
+  }
+
+  .react-plp-product-filter--active-filters {
+    display: flex;
+    justify-content: space-between;
+  }
+
+  .react-plp-product-filter__button {
+    width: 100%;
+    color: palette(contrast);
+    background: palette(secondary, plp-filter-background);
+    text-align: left;
+    text-transform: none;
+    padding-left: 10px;
+  }
+
+  .react-plp-product-filter__button--toggle-mobile-filter {
+    display: none;
+
+    @media (max-width: $breakpoint-large - 1px) {
+      @include button(secondary);
+      display: block;
+      margin-bottom: 20px;
+      width: 48%;
+      height: 60px;
+      text-transform: none;
+    }
+  }
+
+  .react-plp-product-filter__button-active {
+    font-weight: bold;
+  }
+
+  .react-plp-product-filter__button--clear {
+    @include button(secondary);
+    width: 100%;
+    margin-bottom: 20px;
+    height: 60px;
+    text-transform: none;
+    font-size: 18px;
+
+    @media (max-width: $breakpoint-large - 1px) {
+      width: 48%;
+    }
+  }
+
+  .react-plp-app-product-filters__accordion-panel__content {
+    display: none;
+  }
+
+  .react-plp-app-product-filters__accordion__item--active {
+    border: 0;
+
+    .react-plp-app-product-filters__accordion-panel__content {
+      display: block;
+    }
+  }
+}

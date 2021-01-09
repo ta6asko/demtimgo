@@ -59,10 +59,10 @@ module Spree
       content_tag(:li, a, class: 'item home')
     end
 
-    def product_breadcrumb(crumbs, taxon, product)
+    def product_breadcrumb(crumbs, _taxon, product)
       return unless product
 
-      strong = content_tag(:strong, taxon.name) unless product
+      strong = content_tag(:strong, product.name)
       crumbs << content_tag(:li, strong, class: 'item')
     end
 

@@ -8,5 +8,9 @@
 //= require jquery_ujs
 //= require accounting.min
 //= require spree/frontend
+//= require spree/frontend/filters.js
 
 //= require_tree .
+
+
+
