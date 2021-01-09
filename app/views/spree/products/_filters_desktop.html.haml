@@ -1,0 +1,28 @@
+.react-plp-app__filters
+  .product-filters.react-plp-app-product-filters
+    .product-filters__header.react-plp-app-product-filters__header
+      .react-plp-app-product-filters__header-container
+        .react-plp-app-product-filters__header-container__text Cups &amp; Mugs
+        %button.react-plp-app-product-filters__header-container__close-button
+    .accordion.product-filters-accordion.react-plp-app-product-filters__accordion
+      .accordion__content.react-plp-app-product-filters__accordion__content
+        .accordion__item.accordion__item--active.react-plp-app-product-filters__accordion__item.react-plp-app-product-filters__accordion__item--active
+          .accordion-panel.react-plp-app-product-filters__accordion-panel
+            .accordion-panel__content.react-plp-app-product-filters__accordion-panel__content
+              .filter-control.react-plp-product-filter.react-plp-product-filter--active-filters
+                %button.react-plp-product-filter__button.react-plp-product-filter__button--toggle-mobile-filter Apply
+
+        - @available_option_types.each do |option_type|
+          - ot_downcase_name = option_type.filter_param
+          - option_type_name = ot_downcase_name.titleize
+          .accordion__item.accordion__item--active.react-plp-app-product-filters__accordion__item.react-plp-app-product-filters__accordion__item--active
+            .accordion-panel.react-plp-app-product-filters__accordion-panel
+              %button.accordion-panel__header.react-plp-app-product-filters__accordion-panel__header(id="filters#{option_type_name}")
+                %span.react-plp-app-product-filters__accordion-panel__heading
+                  = option_type.presentation
+              .accordion-panel__content.react-plp-app-product-filters__accordion-panel__content
+                = render 'spree/shared/option_values',
+                  params_ot_downcase_name: params[ot_downcase_name],
+                  option_type: option_type,
+                  permitted_params: permitted_params,
+                  ot_downcase_name: ot_downcase_name

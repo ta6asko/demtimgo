@@ -1,0 +1,20 @@
+%article.product.react-plp-app-product
+  .product__images.product__images--mulitple.react-plp-app-product__images.react-plp-app-product__images--mulitple
+    %a.product__images-link.react-plp-app-product__images-link(href="#{spree.product_path(product, taxon_id: @taxon&.id)}")
+      %figure.o-imagewrap.square-wrapper.__imagewrap.o-image__img-portrait.has-loaded{"data-loaded" => "true"}
+        .o-image
+          = plp_and_carousel_image(product)
+  .product__description.react-plp-app-product__description
+    .product__header.react-plp-app-product__header
+      %a.product__link.react-plp-app-product__link(href="#{spree.product_path(product, taxon_id: @taxon&.id)}")
+        .product__title.react-plp-app-product__title
+          = product.name
+      .product__subtitle.react-plp-app-product__subtitle
+        = product.name
+    .product__prices.react-plp-app-product__prices
+      %span.product__prices-label
+      .price-wrapper
+        %p.price.price--regular
+          %span.price__label Regular
+          %span.price__value
+            = display_price(product)

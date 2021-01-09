@@ -1,0 +1,251 @@
+/**
+ * Styling for the Detailed Information section of the PDP
+ */
+.product.info.detailed {
+  .product.data.items {
+    position: relative;
+    z-index: 1;
+    border-bottom: 0;
+    margin-left: 0;
+    margin-right: 0;
+
+    &::after {
+      content: '';
+      display: block;
+      clear: both;
+    }
+  }
+
+  .item.title {
+    margin-left: 6px;
+    font-size: $font-size-regular;
+    text-transform: uppercase;
+    float: left;
+    width: 32.3%;
+    border-bottom: 2px solid palette(secondary, border);
+    text-align: center;
+
+    @media (max-width: $breakpoint-x-large - 1px) {
+      width: 32%;
+      margin-left: 8px;
+    }
+
+    @media (max-width: $page-width-content - 1px) {
+      width: 31.5%;
+      margin-left: 9px;
+    }
+
+    @media (max-width: $breakpoint-large - 1px) {
+      width: 100%;
+      margin: 0;
+      padding-left: 15px;
+      float: none;
+      text-align: left;
+    }
+
+    &:first-child {
+      margin-left: 3px;
+
+      @media (max-width: $breakpoint-large - 1px) {
+        margin-left: 0;
+      }
+    }
+
+    &:first-child:nth-last-child(8),
+    &:first-child:nth-last-child(8) ~ .data.item.title {
+      width: 23%;
+      margin-left: 10px;
+
+      @media (max-width: $breakpoint-x-large - 1px) {
+        width: 100%;
+        margin: 0;
+        padding-left: 15px;
+        float: none;
+        text-align: left;
+      }
+    }
+
+    &:first-child:nth-last-child(8) > .data.switch::after,
+    &:first-child:nth-last-child(8) ~ .data.item.title > .data.switch::after {
+      @media (max-width: $breakpoint-x-large - 1px) {
+        content: '+';
+        font-size: 15px;
+        position: absolute;
+        right: 15px;
+        top: 10px;
+      }
+    }
+
+    &:first-child:nth-last-child(8).active > .data.switch::after,
+    &:first-child:nth-last-child(8) ~ .data.item.title.active > .data.switch::after {
+      @media (max-width: $breakpoint-x-large - 1px) {
+        @include pseudo-icon(5px, 1px);
+        background-color: palette(contrast);
+        top: 20px;
+        right: 17px;
+      }
+    }
+
+    &:first-child:nth-last-child(8) ~ .data.item.content {
+      @media (max-width: $breakpoint-x-large - 1px) {
+        float: none;
+        margin: 0;
+        padding: 20px 15px 0 15px;
+      }
+    }
+  }
+
+  .item.title.active {
+    background-color: palette(secondary, tab);
+
+    .data.switch::after {
+      @media (max-width: $breakpoint-large - 1px) {
+        @include pseudo-icon(5px, 1px);
+        background-color: palette(contrast);
+        top: 20px;
+        right: 17px;
+      }
+    }
+
+    & + .item.content {
+      display: block;
+    }
+  }
+
+  .data.switch {
+    font-size: $font-size-small;
+    color: palette(contrast);
+    height: 40px;
+    display: block;
+    padding-top: 10px;
+    cursor: pointer;
+    position: relative;
+
+    &:hover {
+      text-decoration: none;
+    }
+
+    &:focus {
+      outline: 0;
+    }
+
+    &::after {
+      @media (max-width: $breakpoint-large - 1px) {
+        content: '+';
+        font-size: 15px;
+        position: absolute;
+        right: 15px;
+        top: 10px;
+      }
+    }
+  }
+
+  .item.content {
+    display: none;
+    float: right;
+    margin-left: -100%;
+    margin-top: 58px; // needs to be margin otherwise click on tabs will not work
+    padding: 0 10px;
+    width: 100%;
+
+    @media (max-width: $breakpoint-x-large - 1px) {
+      padding-left: 5px;
+    }
+
+    @media (max-width: $breakpoint-large - 1px) {
+      float: none;
+      margin: 0;
+      padding: 20px 15px 0 15px;
+    }
+  }
+
+  .delivery-returns-toggle {
+    .tab-title {
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      height: 40px;
+      background-color: palette(contrast, light);
+      border-bottom: 1px solid palette(secondary, border);
+      text-transform: uppercase;
+      font-size: $font-size-small;
+
+      &:hover {
+        cursor: pointer;
+      }
+
+      &::before {
+        padding-left: 6px;
+      }
+
+      &::after {
+        content: '+';
+        font-size: 15px;
+        position: absolute;
+        right: 30px;
+      }
+    }
+
+    .tab-title.show-hide--toggle {
+      background-color: palette(secondary, tab);
+
+      & + .tab-block {
+        display: block;
+      }
+
+      &::after {
+        content: '-';
+        margin-top: -1px;
+        right: 32px;
+      }
+    }
+
+    .tab-block {
+      display: none;
+      padding: 20px;
+    }
+
+    .delivery-tab-title {
+      &::before {
+        @include icon(delivery);
+        font-size: 40px;
+      }
+    }
+
+    .returns-tab-title {
+      &::before {
+        @include icon(returns);
+        font-size: 36px;
+        padding-right: 4px;
+      }
+    }
+  }
+
+  .table.additional-attributes {
+    tr,
+    th,
+    td {
+      display: block; // to make table column display vertically
+    }
+
+    .table-caption {
+      display: none;
+    }
+
+    .col.label {
+      font-size: 17px;
+      font-weight: normal;
+      letter-spacing: 0;
+      border: 0;
+    }
+
+    .col.data {
+      border: 0;
+      letter-spacing: 0;
+    }
+
+    p {
+      padding: 0 0 5px;
+    }
+  }
+}

@@ -1,0 +1,197 @@
+.bootstrap-iso
+  .columns
+    .column.main
+      .product-title-container
+        .page-title-wrapper.product
+          %h1.page-title
+            %span.base{"data-ui-id" => "page-title-wrapper"}
+              = @taxon.name
+          .product.attribute.heading-one-title
+            .value
+              = @product.name
+          .product.attribute.label
+            .value
+              = @product.name
+      .product-media-container
+        .product.media
+          = render(partial: 'gallery')
+      .product-info-container
+        .product-info-main
+          .product-add-form
+            %form#product_addtocart_form{:action => "", "data-product-sku" => "18297201", :method => "post", :novalidate => "novalidate"}
+              %input{:name => "product", :type => "hidden", :value => "4954"}
+              %input{:name => "selected_configurable_option", :type => "hidden", :value => ""}
+              %input#related-products-field{:name => "related_product", :type => "hidden", :value => ""}
+              %input{:name => "item", :type => "hidden", :value => "4954"}
+              %input{:name => "form_key", :type => "hidden", :value => "egJMaGgiTTdFP8L0"}
+              .product.attribute.promo-notes
+                .value
+              #super-product-table
+                .table-wrapper.grouped{"data-js" => "product-items-price-info-table-container"}
+                  %table.table.data.grouped
+                    %thead
+                      %tr
+                        %th.col.item{:scope => "col"}
+                          Select Your Items
+                        %th.col.price{:scope => "col"} Price
+                        %th.col.qty{:scope => "col"} Quantity
+                    %tbody
+                      %tr
+                        %td.col.item{"data-th" => "Item List Description"}
+                          %strong.product-item-list-desc
+                            = @product.name
+                          %strong.product-stock-status
+                        %td.col.price{"data-th" => "Price"}
+                          .price-box.price-final_price{"data-price-box" => "product-id-4954", "data-product-id" => "4954", "data-role" => "priceBox"}
+                            %span.price-container.price-final_price.tax.weee
+                              %span#product-price-4954.price-wrapper{"data-price-amount" => "19.95", "data-price-type" => "finalPrice"}
+                                %span.price
+                                  = @product.price
+                        %td.col.qty{"data-th" => "Qty"}
+                          .qty-with-controls
+                            %button.qty-control.qty-control--less{"data-action" => "sub", :type => "button"} -
+                            .control.qty
+                              %input.input-text.qty{"data-amount" => "19.95", "data-errors-message-box" => "#validation-message-box", "data-product-id" => "4954", "data-validate" => "{'validate-grouped-qty':'#super-product-table'}", :name => "qty", :title => "Qty", :type => "text", :value => "1"}
+                            %button.qty-control.qty-control--more{"data-action" => "add", :type => "button"} +
+              .grouped-total-container
+                Total:        $
+                %span.grouped-total
+                  = @product.price
+              #validation-message-box
+              .box-tocart
+                .fieldset
+                  .actions
+                    %span
+                      %button.action.primary.tocart.box-tocart--find-in-store__button.findinstore-modal-popup-trigger{:title => "Find In Store", :type => "button"}
+                        %span Find In Store
+                    %span
+                      %button#product-addtocart-button.action.primary.tocart{:title => "Add to Bag", :type => "submit"}
+                        %span Add to Bag
+                    #instant-purchase{"data-bind" => "scope:'instant-purchase'"}
+      .product-social-links
+        .product-addto-links{"data-role" => "add-to-links"}
+      .product-details-container
+        .product.info.detailed
+          .product.data.items{:role => "tablist"}
+            .data.item.title.active{"aria-controls" => "product.info.designer.notes", "aria-expanded" => "true", "aria-selected" => "false", "data-collapsible" => "true", "data-role" => "collapsible", :id => "tab-label-product.info.designer.notes", :role => "tab", :tabindex => "0"}
+              %a.data.switch{"data-toggle" => "trigger", :href => "#product.info.designer.notes", :id => "tab-label-product.info.designer.notes-title", :tabindex => "-1"}
+                Designer Notes
+            .data.item.content{"aria-hidden" => "false", "aria-labelledby" => "tab-label-product.info.designer.notes", "data-role" => "content", :id => "product.info.designer.notes", :role => "tabpanel"}
+              .product.attribute.description
+                .value
+                  %div
+                    %br
+                  %div
+                    %span{:style => "font-style: italic;"} Do Not Microwave
+            .data.item.title{"aria-controls" => "product.details.attributes", "aria-expanded" => "false", "aria-selected" => "false", "data-collapsible" => "true", "data-role" => "collapsible", :id => "tab-label-product.details.attributes", :role => "tab", :tabindex => "0"}
+              %a.data.switch{"data-toggle" => "trigger", :href => "#product.details.attributes", :id => "tab-label-product.details.attributes-title", :tabindex => "-1"}
+                Product Details
+            .data.item.content{"aria-hidden" => "true", "aria-labelledby" => "tab-label-product.details.attributes", "data-role" => "content", :id => "product.details.attributes", :role => "tabpanel", :style => "display: none;"}
+              .additional-attributes-wrapper.table-wrapper
+                %table#product-attribute-specs-table.data.table.additional-attributes
+                  %caption.table-caption More Information
+                  %tbody
+                    %tr
+                      %th.col.label{:scope => "row"} Product Details
+                      %td.col.data{"data-js" => "attribute_product_details", "data-th" => "Product Details"}
+                        %p{:style => "font-weight: 300; color: #414042;"}
+                        %p{:style => "color: #414042;"}
+                          %span Miss Tea Party Tea Cup & Saucer:
+                          %span{:style => "font-weight: 300;"} New Bone China, 20921601
+            .data.item.title{"aria-controls" => "product.info.deliver.returns", "aria-expanded" => "false", "aria-selected" => "false", "data-collapsible" => "true", "data-role" => "collapsible", :id => "tab-label-product.info.deliver.returns", :role => "tab", :tabindex => "0"}
+              %a.data.switch{"data-toggle" => "trigger", :href => "#product.info.deliver.returns", :id => "tab-label-product.info.deliver.returns-title", :tabindex => "-1"}
+                Delivery & Returns
+            .data.item.content{"aria-hidden" => "true", "aria-labelledby" => "tab-label-product.info.deliver.returns", "data-role" => "content", :id => "product.info.deliver.returns", :role => "tabpanel", :style => "display: none;"}
+              .delivery-returns-toggle
+                %div
+                  %p{:style => "color: #800000; font-weight: 600;"}
+                    %span{:style => "color: #333333; font-size: 18px;"} Shipping & Returns Policy
+                %p
+                  We are pleased to offer
+                  %strong FREE delivery for all purchases over $150.
+                %p For all purchases under $150 a flat rate delivery fee of $9.95 per order applies.
+                %p
+                  %strong FREE In-Store Returns
+                  within 14 days of purchase for all customers (or within 30 days for Rewards Members).
+                  %a{:href => "https://www.bedbathntable.com.au/delivery-returns", :style => "text-decoration: underline;"} Read more >
+                %h3
+                  %span{:style => "font-size: 1.17em;"} Delivery Times
+                %p
+                  %span{:style => "font-weight: 600;"} Please expect delays of up to 5 business days for dispatch from our warehouse and transit within the Australia Post network.
+                / <p>Most orders received (outside special sales events) are dispatched from our warehouse on the next business day.</p>
+                %p Our carrier, Australia Post provides a delivery estimate (days after dispatch) of:
+                %table
+                  %tbody
+                    %tr
+                      %th Delivery Location
+                      %th Metro
+                      %th Regional
+                    %tr
+                      %td VIC
+                      %td 2 business days
+                      %td 2-3  business days
+                    %tr
+                      %td NSW, SA & ACT
+                      %td 2-3 business  days
+                      %td 3-4 business  days
+                    %tr
+                      %td QLD & TAS
+                      %td 3-4 business  days
+                      %td 4-14 business  days
+                    %tr
+                      %td WA
+                      %td 5 business days
+                      %td 6-9 business days
+                    %tr
+                      %td NT
+                      %td 6 business days
+                      %td 6-14 business days
+                %p  
+                %p
+                  %a{:href => "https://www.bedbathntable.com.au/delivery-returns", :style => "text-decoration: underline;"} See our full shipping & returns policy >
+                .tab-title.returns-tab-title RETURNS
+                .tab-block
+                  %h3{:style => "text-align: left;"}
+                    %strong Change of Mind
+                  %p
+                    %strong FREE In-Store Returns
+                  %p Unused items purchased online can be returned free of charge to one of our stores nationwide within 14 days of the date your delivery has been received. Our Rewards members enjoy extended returns of up to 30 days from the date of purchase.
+                  %p Items must be in original condition and packaging. Presentation of Invoice is required to process a return. In-store returns are processed immediately.
+                  %p
+                    Visit our
+                    %a{:href => "http://www.bedbathntable.co.nz/locator"} Store Locator
+                    to find a store near you.
+                  %p
+                    %strong Via Post
+                  %p If there is no store near you, you can return your order via post. Items must be shipped to us within 14 days of the date your delivery has been received, be in an original condition and packaging and include original invoice. Our Rewards members enjoy extended returns of up to 30 days from the date of purchase.
+                  %p To return via post simply affix the return label provided with your order, take it to the nearest post office and pay a postage fee. Please address your returns to:
+                  %p
+                    %strong Bed Bath N’ Table Returns
+                    %br/
+                    %strong
+                      PO Box 4034
+                      %br/
+                    %strong
+                      Deer Park East, VIC 3022
+                      %br/
+                  %p
+                    Please note that
+                    %em change of mind
+                    returns via post are at the customer's cost. We recommend keeping proof of postage as we do not take responsibility for items lost in transit.
+                  %h3
+                    %strong Faulty Items
+                  %p On a rare occasion a manufacturing fault may occur. In this instance, we will process either an exchange or a full refund including postage charges. The choice is yours! Contact us as soon as you discover a fault, advising the order number, the faulty item's name and number and a description of the fault.
+                  %p
+                    You can return a faulty item in one of our
+                    %a{:href => "/locator"} stores
+                    nationwide or via post. Please contact our Customer Services to request a pre-paid authorisation and to arrange the return via Australia Post.
+                  %p
+                    %strong CANCELLING YOUR ORDER
+                  %p Please kindly note, once an order and payment has been processed the order cannot be changed or cancelled. We pack orders quickly, which means we can't make any changes once you've placed it.
+                  %p You can return your order to us once you have received it.
+                  %p
+                    %strong EXCHANGE
+                  %p You can exchange your online order free of charge in one of our stores nationwide within 14 days of the date your delivery has been received, upon presentation of the invoice. We do not currently offer exchanges via post.
+                  %p
+                    For full Terms and Conditions of sales including Delivery and Returns click
+                    %a{:href => "http://www.bedbathntable.co.nz/terms"} here

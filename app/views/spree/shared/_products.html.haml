@@ -1,0 +1,5 @@
+.list-loader.react-plp-app-product-list-loader.react-plp-app__product-list-loader
+  %ul.list-container.react-plp-app-product-list.list-loader__list.react-plp-app-product-list-loader__list
+    - @products.each do |product|
+      %li.list-container__list-item.react-plp-app-product-list__list-item
+        = render('spree/shared/product', product: product)

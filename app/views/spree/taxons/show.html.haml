@@ -1,5 +1,6 @@
-= spree_breadcrumbs(@taxon)
-- if @taxon.products.size > 0 && !@taxon.parent_id.nil?
-  = render template: 'spree/products/index', products: @taxon.products
-- else
-  = render 'subcategories', taxon: @taxon
+.bootstrap-iso
+  = spree_breadcrumbs(@taxon)
+  - if @taxon.products.size > 0 && !@taxon.parent_id.nil?
+    = render(template: 'spree/products/index', products: @taxon.products)
+  - else
+    = render('subcategories', taxon: @taxon)
