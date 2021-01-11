@@ -1,0 +1,31 @@
+commom: &common
+  adapter: postgresql
+  encoding: unicode
+  username: ta6
+  password: root
+  host: localhost
+  pool: 10
+  timeout: 15000
+  min_messages: warning
+
+development:
+  <<: *common
+  database: BC_development
+
+test:
+  <<: *common
+  database: BC_test
+
+staging:
+  <<: *common
+  database: BC_staging
+
+production:
+  database: d35cihgbtpofa5
+  port: 5432
+  adapter: postgresql
+  encoding: unicode
+  pool: 5
+  host: ec2-34-239-241-25.compute-1.amazonaws.com
+  username: suaivzikigycnp
+  password: 2e8bf7a05c14d80151594dd425bd534a4f433e5f1b6d2094927308b80463ff9e

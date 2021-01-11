@@ -1,43 +1,43 @@
 @font-face{
-  font-family:"Futura";
-  src:url("../../futura-light/futura-light.eot?#iefix");
-  src:url("../../futura-light/futura-light.eot?#iefix") format("eot"),
-  url("../../futura-light/futura-light.woff2") format("woff2"),
-  url("../../futura-light/futura-light.woff") format("woff"),
-  url("../../futura-light/futura-light.ttf") format("truetype");
+  font-family: 'Futura';
+  src: font-url( asset-path('futura-light.eot?#iefix') );
+  src: font-url( asset-path('futura-light.eot?#iefix') ) format('eot'),
+  font-url( asset-path('futura-light.woff2') ) format('woff2'),
+  font-url( asset-path('futura-light.woff') ) format('woff'),
+  font-url( asset-path('futura-light.ttf') ) format('truetype');
   font-weight: 300;
   font-style: normal;
 }
 
 @font-face{
-  font-family:"Futura";
-  src:url("../../futura-light-oblique/futura-light-oblique.eot?#iefix");
-  src:url("../../futura-light-oblique/futura-light-oblique.eot?#iefix") format("eot"),
-  url("../../futura-light-oblique/futura-light-oblique.woff2") format("woff2"),
-  url("../../futura-light-oblique/futura-light-oblique.woff") format("woff"),
-  url("../../futura-light-oblique/futura-light-oblique.otf") format("otf");
+  font-family: 'Futura';
+  src: font-url( asset-path('futura-light-oblique.eot?#iefix') );
+  src: font-url( asset-path('futura-light-oblique.eot?#iefix') ) format('eot'),
+  font-url( asset-path('futura-light-oblique.woff2') ) format('woff2'),
+  font-url( asset-path('futura-light-oblique.woff') ) format('woff'),
+  font-url( asset-path('futura-light-oblique.otf') ) format('otf');
   font-weight: 300;
   font-style: italic;
 }
 
 @font-face{
-  font-family:"Futura";
-  src:url("../../futura-book/futura-book.eot?#iefix");
-  src:url("../../futura-book/futura-book.eot?#iefix") format("eot"),
-  url("../../futura-book/futura-book.woff2") format("woff2"),
-  url("../../futura-book/futura-book.woff") format("woff"),
-  url("../../futura-book/futura-book.ttf") format("truetype");
+  font-family: 'Futura';
+  src: font-url( asset-path('futura-book.eot?#iefix') );
+  src: font-url( asset-path('futura-book.eot?#iefix') ) format('eot'),
+  font-url( asset-path('futura-book.woff2') ) format('woff2'),
+  font-url( asset-path('futura-book.woff') ) format('woff'),
+  font-url( asset-path('futura-book.ttf') ) format('truetype');
   font-weight: normal;
   font-style: normal;
 }
 
-@font-face {
+@font-face{
   font-family: 'icomoon';
-  src: url('../../icomoon/icomoon.eot?srqr16');
-  src: url('../../icomoon/icomoon.eot?srqr16#iefix') format('embedded-opentype'),
-  url('../../icomoon/icomoon.ttf?srqr16') format('truetype'),
-  url('../../icomoon/icomoon.woff?srqr16') format('woff'),
-  url('../../icomoon/icomoon.svg?srqr16#icomoon') format('svg');
+  src: font-url( asset-path('icomoon.eot?srqr16') );
+  src: font-url( asset-path('icomoon.eot?srqr16#iefix') ) format('embedded-opentype'),
+  font-url( asset-path('icomoon.ttf?srqr16') ) format('truetype'),
+  font-url( asset-path('icomoon/icomoon.woff?srqr16') ) format('woff'),
+  font-url( asset-path('icomoon.svg?srqr16#icomoon') ) format('svg');
   font-weight: normal;
   font-style: normal;
 }

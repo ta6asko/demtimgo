@@ -27,10 +27,6 @@ db/*.sqlite3
 *.sassc
 .redcar/
 .sass-cache
-/config/config.yml
-/config/cable.yml
-/config/storage.yml
-/config/database.yml
 /coverage.data
 /coverage/
 /db/*.javadb/
@@ -43,6 +39,7 @@ db/*.sqlite3
 /public/stylesheets/compiled
 /public/system/*
 /spec/tmp/*
+/tmp/*
 /cache
 /capybara*
 /capybara-*.html
